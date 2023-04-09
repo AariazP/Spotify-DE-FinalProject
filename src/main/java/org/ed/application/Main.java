@@ -77,6 +77,7 @@ public class Main extends Application {
     private void loadHome(Controller controller) {
         if(controller instanceof LeftBarController){
             ((LeftBarController) controller).loadHomeFXML();
+            ((LeftBarController) controller).loadPlaylist();
         }
     }
 

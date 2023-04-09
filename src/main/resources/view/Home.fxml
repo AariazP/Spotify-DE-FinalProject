@@ -104,6 +104,26 @@
                                     <Insets top="15.0" />
                                  </VBox.margin>
                               </ScrollPane>
+                              <Label layoutX="10.0" layoutY="245.0" styleClass="lblHome" text="Escuchados recientemente" />
+                              <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="10.0" layoutY="292.0" prefHeight="226.0" prefWidth="1305.0" styleClass="scrollPaneHome" vbarPolicy="NEVER">
+                                 <content>
+                                    <HBox fx:id="HBoxRecentlyListen1" prefHeight="224.0" prefWidth="1301.0" spacing="30.0">
+                                       <padding>
+                                          <Insets left="50.0" />
+                                       </padding>
+                                    </HBox>
+                                 </content>
+                              </ScrollPane>
+                              <Label layoutX="10.0" layoutY="518.0" styleClass="lblHome" text="Escuchados recientemente" />
+                              <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="10.0" layoutY="550.0" prefHeight="226.0" prefWidth="1305.0" styleClass="scrollPaneHome" vbarPolicy="NEVER">
+                                 <content>
+                                    <HBox fx:id="HBoxRecentlyListen11" prefHeight="224.0" prefWidth="1301.0" spacing="30.0">
+                                       <padding>
+                                          <Insets left="50.0" />
+                                       </padding>
+                                    </HBox>
+                                 </content>
+                              </ScrollPane>
                            </children>
                         </VBox>
                      </children>

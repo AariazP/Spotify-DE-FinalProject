@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="50.0" prefWidth="234.0" style="-fx-background-color: Transparent;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ed.controllers.PlaylistItemController">
+   <children>
+      <Label fx:id="lblNombrePlaylist" onMouseEntered="#setColorLabel" onMouseExited="#setDefault" prefHeight="50.0" prefWidth="234.0" style="-fx-cursor: HAND;" text="Label" textFill="#b2b2b2">
+         <font>
+            <Font name="Product Sans" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

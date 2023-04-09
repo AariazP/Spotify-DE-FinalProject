@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import org.ed.utilities.PathUtilities;
@@ -59,6 +60,9 @@ public class LeftBarController extends Controller{
     private ImageView imgPlay;
 
     private MediaPlayer mediaPlayer;
+
+    @FXML
+    private VBox VBoxPlaylist;
 
     private boolean isPlaying = false;
 
@@ -181,5 +185,19 @@ public class LeftBarController extends Controller{
     }
 
 
+    public void loadPlaylist() {
+        try {
+            for(int i = 0; i < 100; i++){
+                FXMLLoader loader;
+                loader = getMain().loadFXML(PathUtilities.PLAYLIST);
+                AnchorPane pane = loader.load();
+                Controller controller = loader.getController();
+                controller.setMain(getMain());
+                VBoxPlaylist.getChildren().add(pane);
+            }
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
