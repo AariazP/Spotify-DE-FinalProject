@@ -154,7 +154,7 @@ public class LeftBarController extends Controller{
     }
 
     private void setVolume() {
-        mediaPlayer.setVolume(sliderVolume.getValue() / 100);
+        if(mediaPlayer != null) mediaPlayer.setVolume(sliderVolume.getValue() / 100);
     }
 
     public void initializeData(){
@@ -172,6 +172,7 @@ public class LeftBarController extends Controller{
             controller.setMain(getMain());
             HomeController homeController = (HomeController) controller;
             homeController.setLeftBarController(this);
+            homeController.initializable();
             paneCenter.getChildren().clear();
             paneCenter.getChildren().add(paneHome);
         } catch (Exception e) {

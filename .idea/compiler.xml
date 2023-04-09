@@ -10,5 +10,8 @@
         <module name="Spotify" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Spotify-ED-private" target="19" />
+    </bytecodeTargetLevel>
   </component>
 </project>
