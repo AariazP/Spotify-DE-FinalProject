@@ -60,7 +60,7 @@
 
 .lblSaludo{
     -fx-text-fill: #ffffff;
-    -fx-font: 30px "Product Sans" ;
+    -fx-font: 23px "Product Sans" ;
     -fx-text-alignment: center;
 }
 
@@ -253,4 +253,15 @@
     -fx-text-fill: #bd0606;
     -fx-font: 15px "Product Sans" ;
     -fx-text-alignment: center;
+}
+
+
+.scrollPaneHome{
+    -fx-background-color: TRANSPARENT;
+    -fx-border-color: TRANSPARENT;
+
+}
+
+.scrollPaneHome > .viewport {
+    -fx-background-color: transparent;
 }

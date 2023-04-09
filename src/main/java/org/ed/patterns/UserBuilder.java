@@ -41,6 +41,10 @@ public class UserBuilder {
         user.setPassword(MethodsUtilities.hashPassword(password));
         return this;
     }
+    public UserBuilder password(String password, boolean flag) {
+        user.setPassword(password);
+        return this;
+    }
 
     public UserBuilder email(String email) {
         user.setEmail(email);

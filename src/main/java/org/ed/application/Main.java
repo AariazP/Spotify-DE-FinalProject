@@ -3,11 +3,11 @@ package org.ed.application;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.ed.controllers.Controller;
+import org.ed.controllers.LeftBarController;
 import org.ed.model.Domain;
 import org.ed.services.DBConnection;
 import org.ed.utilities.PathUtilities;
@@ -34,7 +34,7 @@ public class Main extends Application {
     public void start(Stage primaryStage){
         stage = primaryStage;
         inicializarVentana(false);
-        loadStage(PathUtilities.login);
+        loadStage(PathUtilities.LOGIN);
 
     }
 
@@ -52,13 +52,17 @@ public class Main extends Application {
         stage.getIcons().add(ViewUtilities.getIcon("logo"));
     }
 
-
+    /**
+     * This method loads the stage with the desired path
+     * @param path path of the fxml file
+     */
     public void loadStage(String path){
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(path)));
         try {
             Pane pane = loader.load();
             Controller controller = loader.getController();
             controller.setMain(this);
+            loadHome(controller);
             Scene scene = new Scene(pane);
             stage.setScene(scene);
             inicializarVentana(true);
@@ -70,9 +74,16 @@ public class Main extends Application {
 
     }
 
-
-
-    public FXMLLoader getAlertPane() {
-        return new FXMLLoader(Objects.requireNonNull(getClass().getResource(PathUtilities.alert)));
+    private void loadHome(Controller controller) {
+        if(controller instanceof LeftBarController){
+            ((LeftBarController) controller).loadHomeFXML();
+        }
     }
+
+
+    public FXMLLoader loadFXML(String path){
+        return new FXMLLoader(Objects.requireNonNull(getClass().getResource(path)));
+    }
+
+
 }

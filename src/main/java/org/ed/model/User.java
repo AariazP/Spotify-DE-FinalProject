@@ -56,13 +56,11 @@ public class User {
     }
 
     public String getFavoriteSong() {
-        String aux = "";
+        StringBuilder aux = new StringBuilder();
         while (songs.hasNext()){
-
-            aux += songs.next().getId() + " ";
-
+            aux.append(songs.next().getId()).append(" ");
         }
-        return aux;
+        return aux.toString();
 
     }
 

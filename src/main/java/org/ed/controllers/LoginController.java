@@ -7,6 +7,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import org.ed.model.Domain;
 import org.ed.utilities.MethodsUtilities;
 import org.ed.utilities.PathUtilities;
 
@@ -30,7 +31,13 @@ public class LoginController extends Controller{
     @FXML
     void login(ActionEvent event) {
 
-        getMain().loadStage(PathUtilities.LEFT_BAR);
+        if(Domain.getInstance().login(txtEmailUser.getText(), txtPassword.getText())){
+            getMain().loadStage(PathUtilities.LEFT_BAR);
+        } else {
+            lblFaliedSesion.setVisible(true);
+        }
+
+
     }
 
     @FXML
@@ -55,7 +62,7 @@ public class LoginController extends Controller{
 
     @FXML
     void signUp(MouseEvent event) {
-        getMain().loadStage(PathUtilities.register);
+        getMain().loadStage(PathUtilities.REGISTER);
     }
 
     @FXML
@@ -64,14 +71,9 @@ public class LoginController extends Controller{
         if(txtEmailUser.getText().equals("")){
             txtEmailUser.styleProperty().setValue("-fx-border-color: BLACK");
             lblIngresaCorreo.setVisible(false);
-        } else if(!MethodsUtilities.verifyEmail(txtEmailUser.getText())){
-            lblIngresaCorreo.setVisible(true);
-            txtEmailUser.styleProperty().setValue("-fx-border-color: red");
-        }
-        else {
+        }else {
             txtEmailUser.styleProperty().setValue("-fx-border-color: BLACK");
             lblIngresaCorreo.setVisible(false);
-            System.out.println(" Email correcto");
         }
 
 
@@ -81,8 +83,8 @@ public class LoginController extends Controller{
     void verifyPassword(KeyEvent event) {
 
         if(txtPassword.getText().equals("")){
-            txtPassword.styleProperty().setValue("-fx-border-color: RED");
-            lblIngresaContrasenia.setVisible(true);
+            txtPassword.styleProperty().setValue("-fx-border-color: BLACK");
+            lblIngresaContrasenia.setVisible(false);
         } else if(txtPassword.getText().length() < 8){
             txtPassword.styleProperty().setValue("-fx-border-color: RED");
             lblIngresaContrasenia.setVisible(true);

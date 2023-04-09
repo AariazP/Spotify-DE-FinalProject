@@ -142,7 +142,7 @@ public class DBConnection {
                 User user = new UserBuilder()
                         .id(rs.getLong("id"))
                         .userName(rs.getString("username"))
-                        .password(rs.getString("password"))
+                        .password(rs.getString("password"), false)
                         .email(rs.getString("email"))
                         .name(rs.getString("name"))
                         .nationality(rs.getString("nationality"))

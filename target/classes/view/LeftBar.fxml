@@ -199,4 +199,7 @@
          </Slider>
       </HBox>
    </bottom>
+   <center>
+      <AnchorPane fx:id="paneCenter" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>

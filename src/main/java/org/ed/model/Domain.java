@@ -6,6 +6,7 @@ import lombok.ToString;
 import org.ed.exceptions.CRUDException;
 import org.ed.services.DBConnection;
 import org.ed.utilities.DBUtilities;
+import org.ed.utilities.MethodsUtilities;
 
 @ToString
 @Setter
@@ -77,5 +78,14 @@ public class Domain {
             return null;
         }
 
+    }
+
+    public boolean login(String user, String password) {
+        try {
+            User user1 = iUser.read(user);
+            return user1.getPassword().equals(MethodsUtilities.hashPassword(password));
+        } catch (CRUDException e) {
+            return false;
+        }
     }
 }

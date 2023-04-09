@@ -129,7 +129,7 @@ public class RegisterController extends Controller{
                     .nationality(country)
                     .build();
             Domain.getInstance().addUser(user);
-            getMain().loadStage(PathUtilities.login);
+            getMain().loadStage(PathUtilities.LOGIN);
         }
 
 
@@ -305,7 +305,7 @@ public class RegisterController extends Controller{
     }
 
     private void back(){
-        getMain().loadStage(PathUtilities.login);
+        getMain().loadStage(PathUtilities.LOGIN);
     }
 
 
