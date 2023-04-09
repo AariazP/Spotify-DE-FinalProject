@@ -3,6 +3,8 @@ package org.ed.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import lombok.Getter;
 import lombok.Setter;
 import org.ed.utilities.PathUtilities;
@@ -20,6 +22,8 @@ public class HomeController extends Controller{
     @FXML
     private GridPane gridRecommend;
 
+    @FXML
+    private HBox HBoxRecentlyListen;
 
 
 
@@ -30,6 +34,22 @@ public class HomeController extends Controller{
             loadSettings();
         });
         loadRecommendations();
+        loadRecentlyListen();
+    }
+
+    private void loadRecentlyListen() {
+        try {
+            for (int i = 0; i < 100; i++){
+                Pane pane = getMain().loadFXML(PathUtilities.SINGER).load();
+                pane.setStyle("-fx-start-margin: 30px; -fx-end-margin: 30px;");
+                HBoxRecentlyListen.getChildren().add(pane);
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
     }
 
     private void loadRecommendations() {

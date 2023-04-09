@@ -12,4 +12,5 @@ public class PathUtilities {
     public static final String PROFILE = "/view/Profile.fxml";
     public static final String PLAYLIST = "/view/Playlist.fxml";
 
+    public static final String SINGER = "/view/Singer.fxml";
 }
