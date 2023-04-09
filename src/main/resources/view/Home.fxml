@@ -40,85 +40,6 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <VBox prefHeight="961.0" prefWidth="1363.0" style="-fx-background-color: TRANSPARENT;">
-         <children>
-            <HBox prefHeight="77.0" prefWidth="1355.0">
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="29.0" styleClass="Button-previous-next" text="&lt;">
-                     <HBox.margin>
-                        <Insets left="20.0" top="15.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" styleClass="Button-previous-next" text="&gt;">
-                     <HBox.margin>
-                        <Insets left="10.0" top="15.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Label prefHeight="41.0" prefWidth="276.0" styleClass="lblSaludo" text="Buenos días">
-                     <font>
-                        <Font size="26.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="20.0" top="8.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
-            </HBox>
-            <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="882.0" prefWidth="1363.0" styleClass="scrollPaneHome">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="925.0" prefWidth="1339.0" style="-fx-background-color: Transparent;">
-                     <children>
-                        <VBox layoutX="27.0" layoutY="19.0" prefHeight="830.0" prefWidth="1305.0">
-                           <children>
-                              <GridPane fx:id="gridRecommend" hgap="20.0" prefHeight="220.0" prefWidth="1121.0">
-                                <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="400.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="400.0" />
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="400.0" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
-                                  <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                                 <VBox.margin>
-                                    <Insets left="40.0" right="40.0" />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                 </padding>
-                              </GridPane>
-                           </children>
-                        </VBox>
-                        <Label layoutX="30.0" layoutY="250.0" styleClass="lblHome" text="Escuchados recientemente" />
-                        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutY="300.0" prefHeight="226.0" prefWidth="1305.0" styleClass="scrollPaneHome" vbarPolicy="NEVER">
-                          <content>
-                              <HBox fx:id="HBoxRecentlyListen" prefHeight="224.0" prefWidth="1301.0" spacing="30.0">
-                                 <padding>
-                                    <Insets left="50.0" />
-                                 </padding>
-                              </HBox>
-                          </content>
-                        </ScrollPane>
-                        <Label layoutX="40.0" layoutY="520.0" styleClass="lblHome" text="Los mixes mas escuchados" />
-                        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="-4.0" layoutY="570.0" prefHeight="226.0" prefWidth="1319.0" styleClass="scrollPaneHome" vbarPolicy="NEVER">
-                           <content>
-                              <HBox fx:id="HBoxMixes" prefHeight="222.0" prefWidth="1339.0" spacing="30.0">
-                                 <padding>
-                                    <Insets left="50.0" />
-                                 </padding>
-                              </HBox>
-                           </content>
-                        </ScrollPane>
-                        <Label layoutX="50.0" layoutY="800.0" styleClass="lblHome" text="Tus artistas favoritos" />
-                     </children>
-                  </AnchorPane>
-              </content>
-               <VBox.margin>
-                  <Insets right="20.0" />
-               </VBox.margin>
-            </ScrollPane>
-         </children>
-      </VBox>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#252525" height="41.0" layoutX="1051.0" layoutY="23.0" stroke="#252525" strokeType="INSIDE" style="-fx-arc-height: 25; -fx-arc-width: 25;" width="220.0" x="10.0" y="-10.0" />
       <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="1068.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" x="10.0" y="-10.0">
          <image>
@@ -127,5 +48,73 @@
       </ImageView>
       <Circle fill="#1f93ff00" layoutX="1091.0" layoutY="33.0" radius="20.0" stroke="#252525" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="7.0" />
       <ComboBox fx:id="cmbOptions" layoutX="1107.0" layoutY="23.0" prefHeight="26.0" prefWidth="171.0" style="-fx-background-color: #252525;" />
+      <HBox prefHeight="77.0" prefWidth="1355.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="29.0" styleClass="Button-previous-next" text="&lt;">
+               <HBox.margin>
+                  <Insets left="20.0" top="15.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" styleClass="Button-previous-next" text="&gt;">
+               <HBox.margin>
+                  <Insets left="10.0" top="15.0" />
+               </HBox.margin>
+            </Button>
+            <Label prefHeight="41.0" prefWidth="276.0" styleClass="lblSaludo" text="Buenos días">
+               <font>
+                  <Font size="26.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" top="8.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <ScrollPane hbarPolicy="NEVER" layoutX="1.0" layoutY="83.0" prefHeight="879.0" prefWidth="1362.0" styleClass="scrollPaneHome" vbarPolicy="NEVER">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1035.0" prefWidth="1359.0" style="-fx-background-color: Transparent;">
+               <children>
+                  <VBox prefHeight="210.0" prefWidth="1363.0">
+                     <children>
+                        <GridPane fx:id="gridRecommend" hgap="20.0" prefHeight="220.0" prefWidth="1121.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="400.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="400.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="400.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets left="40.0" right="40.0" />
+                           </VBox.margin>
+                        </GridPane>
+                     </children>
+                  </VBox>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="18.0" layoutY="261.0" prefHeight="226.0" prefWidth="1305.0" styleClass="scrollPaneHome" vbarPolicy="NEVER">
+                     <content>
+                        <HBox fx:id="HBoxRecentlyListen" prefHeight="222.0" prefWidth="1227.0" spacing="30.0" />
+                     </content>
+                  </ScrollPane>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutY="560.0" prefHeight="226.0" prefWidth="1320.0" styleClass="scrollPaneHome" vbarPolicy="NEVER">
+                     <content>
+                        <HBox fx:id="HBoxMixes" prefHeight="222.0" prefWidth="1339.0" spacing="30.0">
+                           <padding>
+                              <Insets left="20.0" right="100.0" />
+                           </padding>
+                        </HBox>
+                     </content>
+                  </ScrollPane>
+                  <Label layoutX="37.0" layoutY="520.0" styleClass="lblHome" text="Los mixes mas escuchados" textFill="WHITE" />
+                  <Label layoutX="37.0" layoutY="225.0" styleClass="lblHome" text="Escuchados recientemente" textFill="WHITE" />
+                  <Label layoutX="37.0" layoutY="818.0" styleClass="lblHome" text="Tus artistas favoritos" textFill="WHITE" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
