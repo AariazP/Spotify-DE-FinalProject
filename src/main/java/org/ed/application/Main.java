@@ -34,7 +34,11 @@ public class Main extends Application {
     public void start(Stage primaryStage){
         stage = primaryStage;
         inicializarVentana(false);
-        loadStage(PathUtilities.LOGIN);
+        if(Domain.getInstance().isUserLogged()){
+            loadStage(PathUtilities.LEFT_BAR);
+        } else {
+            loadStage(PathUtilities.LOGIN);
+        }
 
     }
 

@@ -10,7 +10,7 @@
 
 <AnchorPane fx:id="pane" onMouseClicked="#playRecommend" onMouseEntered="#setCursor" onMouseExited="#setImage" prefHeight="75.0" prefWidth="370.0" style="-fx-background-color: Transparent;" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ed.controllers.RecommendController">
    <children>
-      <Rectangle arcWidth="5.0" fill="#2424248c" height="77.0" layoutX="-2.0" layoutY="-2.0" stroke="TRANSPARENT" strokeType="INSIDE" width="372.0" />
+      <Rectangle fx:id="rectangle" arcWidth="5.0" fill="#2424248c" height="77.0" layoutX="-2.0" layoutY="-2.0" stroke="TRANSPARENT" strokeType="INSIDE" width="372.0" />
       <HBox prefHeight="75.0" prefWidth="370.0">
          <children>
             <ImageView fx:id="imgRecommend" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">

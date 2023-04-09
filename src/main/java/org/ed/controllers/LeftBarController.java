@@ -52,10 +52,8 @@ public class LeftBarController extends Controller{
     private Slider sliderSong;
     @FXML
     private AnchorPane paneCenter;
-
     private AnchorPane paneHome;
-
-
+    private AnchorPane paneSearch;
     @FXML
     private ImageView imgPlay;
 
@@ -63,6 +61,7 @@ public class LeftBarController extends Controller{
 
     @FXML
     private VBox VBoxPlaylist;
+    private FXMLLoader loader;
 
     private boolean isPlaying = false;
 
@@ -98,7 +97,28 @@ public class LeftBarController extends Controller{
 
     @FXML
     void loadSearch(MouseEvent event) {
+        if(paneSearch == null){ // Si no se ha cargado
+            loadSearchFXML();
+        } else { // Si ya se cargo
+            paneCenter.getChildren().clear();
+            paneCenter.getChildren().add(paneSearch);
+        }
+    }
 
+    private void loadSearchFXML() {
+        try {
+            loader = getMain().loadFXML(PathUtilities.SEARCH);
+            paneSearch = loader.load();
+            Controller controller = loader.getController();
+            controller.setMain(getMain());
+            SearchController searchController = (SearchController) controller;
+            searchController.setLeftBarController(this);
+            searchController.initializable();
+            paneCenter.getChildren().clear();
+            paneCenter.getChildren().add(paneSearch);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -168,7 +188,6 @@ public class LeftBarController extends Controller{
      * Carga el home desde el fxml
      */
     public void loadHomeFXML(){
-        FXMLLoader loader;
         try {
             loader = getMain().loadFXML(PathUtilities.HOME);
             paneHome = loader.load();

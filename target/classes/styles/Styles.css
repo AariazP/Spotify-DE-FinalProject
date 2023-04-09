@@ -296,3 +296,29 @@
     -fx-font: 15px "Product Sans" ;
     -fx-text-alignment: left;
 }
+
+.buttonBack-search{
+    -fx-background-color: TRANSPARENT;
+    -fx-text-fill: RGB(255,255,255);
+    -fx-font: 20px "Product Sans" ;
+    -fx-text-alignment: center;
+    -fx-cursor: hand;
+    -fx-border-color: WHITE;
+    -fx-border-radius: 100;
+    -fx-background-radius: 100;
+}
+
+.paneSearch-search{
+    -fx-background-color: WHITE;
+    -fx-border-radius: 30;
+    -fx-background-radius: 30;
+}
+
+.text-field-search{
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: RGB(0,0,0);
+    -fx-font: 10px "Product Sans" ;
+    -fx-text-alignment: center;
+    -fx-cursor: TEXT;
+    -fx-border-color: #FFFFFF;
+}

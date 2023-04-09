@@ -156,7 +156,7 @@
                   <Insets left="600.0" right="200.0" top="10.0" />
                </VBox.margin>
                <children>
-                  <CheckBox mnemonicParsing="false" prefHeight="23.0" prefWidth="117.0" styleClass="checkbox" text="Recordarme">
+                  <CheckBox fx:id="rememberUser" mnemonicParsing="false" prefHeight="23.0" prefWidth="117.0" styleClass="checkbox" text="Recordarme">
                      <HBox.margin>
                         <Insets top="10.0" />
                      </HBox.margin>

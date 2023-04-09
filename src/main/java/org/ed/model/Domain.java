@@ -88,4 +88,13 @@ public class Domain {
             return false;
         }
     }
+
+    public boolean isUserLogged() {
+        try {
+            User user1 = iUser.read(MethodsUtilities.getUserLogged());
+            return user1.getPassword().equals(MethodsUtilities.getPasswordLogged());
+        } catch (CRUDException e) {
+            return false;
+        }
+    }
 }

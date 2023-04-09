@@ -6,17 +6,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 
-
-<AnchorPane prefHeight="190.0" prefWidth="190.0" style="-fx-background-color: TRANSPARENT;" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ed.controllers.SingerController">
+<AnchorPane fx:id="pane" onMouseEntered="#entered" onMouseExited="#exited" prefHeight="190.0" prefWidth="190.0" style="-fx-background-color: TRANSPARENT;" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ed.controllers.SingerController">
    <children>
-      <Rectangle arcHeight="30.0" arcWidth="5.0" fill="#242424" height="200.0" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-arc-width: 30;" width="200.0" />
+      <Rectangle fx:id="rectangle1" arcHeight="30.0" arcWidth="5.0" fill="#242424" height="200.0" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-arc-width: 30;" width="200.0" />
       <ImageView fitHeight="125.0" fitWidth="132.0" layoutX="33.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/feid.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="90.0" arcWidth="5.0" fill="#1f93ff00" height="177.0" layoutX="2.0" layoutY="-10.0" stroke="#242424" strokeType="INSIDE" strokeWidth="40.0" style="-fx-arc-width: 90;" width="189.0" />
-      <ImageView fitHeight="41.0" fitWidth="49.0" layoutX="123.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle fx:id="rectangle2" arcHeight="90.0" arcWidth="5.0" fill="#1f93ff00" height="177.0" layoutX="2.0" layoutY="-10.0" stroke="#242424" strokeType="INSIDE" strokeWidth="40.0" style="-fx-arc-width: 90;" width="189.0" />
+      <ImageView fx:id="imgPlay" fitHeight="41.0" fitWidth="49.0" layoutX="123.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/pauseRecommend.png" />
          </image>

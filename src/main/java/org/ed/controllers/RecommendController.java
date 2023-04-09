@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Rectangle;
 
 public class RecommendController extends Controller{
 
@@ -13,6 +14,9 @@ public class RecommendController extends Controller{
 
     @FXML
     private ImageView imgPlay;
+
+    @FXML
+    private Rectangle rectangle;
 
     @FXML
     private ImageView imgRecommend;
@@ -33,6 +37,7 @@ public class RecommendController extends Controller{
     void setCursor(MouseEvent event) {
         pane.setStyle("-fx-cursor: hand;");
         imgPlay.setVisible(true);
+        rectangle.setStyle("-fx-fill: rgba(129,129,129,0.53);");
     }
 
 
@@ -40,6 +45,7 @@ public class RecommendController extends Controller{
     void setImage(MouseEvent event) {
         pane.setStyle("-fx-cursor: default;");
         imgPlay.setVisible(false);
+        rectangle.setStyle("-fx-fill: #242424;");
     }
 
 }

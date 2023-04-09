@@ -2,6 +2,7 @@ package org.ed.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -26,12 +27,17 @@ public class LoginController extends Controller{
 
     @FXML
     private Label lblIngresaCorreo;
+    @FXML
+    private CheckBox rememberUser;
 
 
     @FXML
     void login(ActionEvent event) {
 
         if(Domain.getInstance().login(txtEmailUser.getText(), txtPassword.getText())){
+            if(rememberUser.isSelected()){
+                MethodsUtilities.saveUser(txtEmailUser.getText(), txtPassword.getText());
+            }
             getMain().loadStage(PathUtilities.LEFT_BAR);
         } else {
             lblFaliedSesion.setVisible(true);

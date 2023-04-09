@@ -24,11 +24,16 @@ public class HomeController extends Controller{
     @FXML
     private HBox HBoxMixes;
 
+    @FXML
+    private HBox HBoxFavoritesArtist;
+
+    @FXML
+    private HBox HBoxFavoritesSongs;
+
 
 
     void initializable() {
         cmbOptions.getItems().addAll("Cuenta", "Perfil", "Sesión privada", "Preferencias", "Cerrar sesión", "Acerca de");
-        cmbOptions.getSelectionModel().select(0);
         cmbOptions.setOnAction(event -> {
             loadSettings();
         });
@@ -47,6 +52,16 @@ public class HomeController extends Controller{
                 Pane pane = getMain().loadFXML(PathUtilities.SINGER).load();
                 pane.setStyle("-fx-start-margin: 30px; -fx-end-margin: 30px;");
                 HBoxMixes.getChildren().add(pane);
+            }
+            for (int i = 0; i < 20; i++){
+                Pane pane = getMain().loadFXML(PathUtilities.SINGER).load();
+                pane.setStyle("-fx-start-margin: 30px; -fx-end-margin: 30px;");
+                HBoxFavoritesSongs.getChildren().add(pane);
+            }
+            for (int i = 0; i < 20; i++){
+                Pane pane = getMain().loadFXML(PathUtilities.SINGER).load();
+                pane.setStyle("-fx-start-margin: 30px; -fx-end-margin: 30px;");
+                HBoxFavoritesArtist.getChildren().add(pane);
             }
 
 
