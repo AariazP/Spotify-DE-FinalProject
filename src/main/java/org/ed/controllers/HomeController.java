@@ -15,15 +15,14 @@ public class HomeController extends Controller{
 
 
     private LeftBarController leftBarController;
-
     @FXML
     private ComboBox<String> cmbOptions;
-
     @FXML
     private GridPane gridRecommend;
-
     @FXML
     private HBox HBoxRecentlyListen;
+    @FXML
+    private HBox HBoxMixes;
 
 
 
@@ -39,11 +38,18 @@ public class HomeController extends Controller{
 
     private void loadRecentlyListen() {
         try {
-            for (int i = 0; i < 100; i++){
+            for (int i = 0; i < 20; i++){
                 Pane pane = getMain().loadFXML(PathUtilities.SINGER).load();
                 pane.setStyle("-fx-start-margin: 30px; -fx-end-margin: 30px;");
                 HBoxRecentlyListen.getChildren().add(pane);
             }
+            for (int i = 0; i < 20; i++){
+                Pane pane = getMain().loadFXML(PathUtilities.SINGER).load();
+                pane.setStyle("-fx-start-margin: 30px; -fx-end-margin: 30px;");
+                HBoxMixes.getChildren().add(pane);
+            }
+
+
         }catch (Exception e) {
             e.printStackTrace();
         }
