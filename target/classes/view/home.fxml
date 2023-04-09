@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="960.0" prefWidth="1392.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="960.0" prefWidth="1392.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="960.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1392.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="0.040380047505938266" startX="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.5064133405685425" green="0.06840000301599503" blue="0.7599999904632568" opacity="0.6271510720252991" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.9966442953020134">
+                           <color>
+                              <Color red="0.1599999964237213" green="0.1599999964237213" blue="0.1599999964237213" opacity="0.942638635635376" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.1599999964237213" green="0.1599999964237213" blue="0.1599999964237213" opacity="0.942638635635376" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+         </children>
+      </VBox>
+      <ScrollPane hbarPolicy="NEVER" layoutY="89.0" prefHeight="870.0" prefWidth="1390.0" style="-fx-background-color: #292929; -fx-border-color: Transparent;">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="869.0" prefWidth="1398.0" style="-fx-background-color: #292929; -fx-opacity: 0.94; -fx-border-color: Transparent;" />
+        </content>
+      </ScrollPane>
+      <Button layoutX="30.0" layoutY="21.0" mnemonicParsing="false" styleClass="Button-previous-next" text="&lt;" />
+      <Button layoutX="100.0" layoutY="23.0" mnemonicParsing="false" styleClass="Button-previous-next" text="&gt;" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#252525" height="60.0" layoutX="1102.0" layoutY="16.0" stroke="#252525" strokeType="INSIDE" style="-fx-arc-height: 25; -fx-arc-width: 25;" width="276.0" />
+      <ImageView fitHeight="34.0" fitWidth="39.0" layoutX="1127.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/unverano.jpg" />
+         </image>
+      </ImageView>
+      <Circle fill="#1f93ff00" layoutX="1144.0" layoutY="43.0" radius="26.0" stroke="#252525" strokeType="INSIDE" strokeWidth="10.0" />
+      <ComboBox layoutX="1172.0" layoutY="32.0" prefHeight="26.0" prefWidth="189.0" style="-fx-background-color: #252525;" />
+      <Label layoutX="146.0" layoutY="17.0" prefHeight="41.0" prefWidth="276.0" styleClass="lblSaludo" text="Buenos días">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

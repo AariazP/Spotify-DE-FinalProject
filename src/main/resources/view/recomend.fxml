@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+
+<AnchorPane prefHeight="104.0" prefWidth="495.0" styleClass="firstitem" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2424245f" height="115.0" layoutX="-2.0" layoutY="-2.0" stroke="TRANSPARENT" strokeType="INSIDE" width="510.0" />
+      <ImageView fitHeight="216.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/feid.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="121.0" layoutY="14.0" prefHeight="82.0" prefWidth="291.0" text="Label" textAlignment="CENTER" />
+      <ImageView fitHeight="64.0" fitWidth="69.0" layoutX="429.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

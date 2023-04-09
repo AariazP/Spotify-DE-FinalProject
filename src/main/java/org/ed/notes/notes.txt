@@ -1,0 +1,13 @@
+
+-----------------UML-------------------------
+
+link al diagrama uml: https://lucid.app/lucidchart/2bf510de-982c-4a86-9d1d-b3cf13f99c77/edit?viewport_loc=-948%2C1807%2C3283%2C1992%2C0_0&invitationId=inv_433fa687-0417-4efb-8f70-e101270845c3
+
+----------------Base de datos----------------
+nombre de la base de datos: "a96001_spotify"
+password de la base de datos: "kebjy7-zyTqiz-zi"
+Driver={MySQL ODBC 8.0 UNICODE Driver};Server=MYSQL8003.site4now.net;Database=db_a96001_spotify;Uid=a96001_spotify;Password=kebjy7-zyTqiz-zi
+
+Diseño de la base de datos: https://docs.google.com/spreadsheets/d/1d9zcMLBGegXQqpl0acMjPlCQN70LVRqDFeffei_vHj0/edit?usp=sharing
+
+
