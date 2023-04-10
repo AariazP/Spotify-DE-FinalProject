@@ -60,7 +60,7 @@
         </dependency>
         <dependency>
             <groupId>org.alejandroArias</groupId>
-            <artifactId>ownStructure1</artifactId>
+            <artifactId>ownStructure</artifactId>
             <version>1</version>
             <scope>system</scope>
             <systemPath>/Users/alejandroarias/Desktop/ownStructure.jar</systemPath>
