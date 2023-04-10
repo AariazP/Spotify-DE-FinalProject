@@ -35,7 +35,10 @@
                   <TextField layoutX="51.0" prefHeight="31.0" prefWidth="235.0" promptText="¿Qué quieres escuchar?" styleClass="text-field-search" />
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="pane-perfil">
+               <HBox.margin>
+                  <Insets left="650.0" />
+               </HBox.margin></AnchorPane>
          </children>
       </HBox>
    </children>
