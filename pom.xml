@@ -59,7 +59,7 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.ed</groupId>
+            <groupId>org.alejandroArias</groupId>
             <artifactId>ownStructure1</artifactId>
             <version>1</version>
             <scope>system</scope>
