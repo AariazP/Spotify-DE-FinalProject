@@ -58,6 +58,13 @@
             <version>1.18.26</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.ed</groupId>
+            <artifactId>ownStructure1</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>/Users/alejandroarias/Desktop/ownStructure.jar</systemPath>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
