@@ -293,7 +293,7 @@
 
 .lblArtist{
     -fx-text-fill: #a9a9a9;
-    -fx-font: 15px "Product Sans" ;
+    -fx-font: 15px "Product Sans";
     -fx-text-alignment: left;
 }
 
@@ -321,4 +321,10 @@
     -fx-text-alignment: center;
     -fx-cursor: TEXT;
     -fx-border-color: #FFFFFF;
+}
+
+.pane-perfil{
+    -fx-background-color: RGB(5,5,5);
+    -fx-border-radius: 30;
+    -fx-background-radius: 30;
 }
