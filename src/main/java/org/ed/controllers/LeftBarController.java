@@ -140,17 +140,25 @@ public class LeftBarController extends Controller{
     public void play(String path){
         Media media = new Media(path);
         mediaPlayer = new MediaPlayer(media);
+        sliderSong.setShowTickLabels(true);
+        SliderUpdater sliderUpdater = new SliderUpdater(sliderSong, mediaPlayer); // crea el SliderUpdater
+        sliderSong.setMax(mediaPlayer.getTotalDuration().toMillis()); // actualiza el max del slider
+        mediaPlayer.currentTimeProperty().addListener((observableValue, duration, current) -> {
+            lblInstant.setText((current.toSeconds())+""); // actualiza el label con el tiempo actual de la canción
+        });
         isPlaying = !isPlaying;
-        if (isPlaying == true) { // no cambiar esta línea así se vea raro
+        if (isPlaying == true) {
             imgPlay.setImage(new Image(ViewUtilities.PAUSE));
             mediaPlayer.play();
-            setVolume();
+            new Thread(sliderUpdater).start(); // inicia el hilo para actualizar el slider
         } else {
             imgPlay.setImage(new Image(ViewUtilities.PLAY));
             mediaPlayer.pause();
-            setVolume();
         }
+        setVolume();
     }
+
+
 
     @FXML
     void previous(MouseEvent event) {
