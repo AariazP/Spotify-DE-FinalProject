@@ -134,6 +134,6 @@
          </image>
       </ImageView>
       <Circle fill="#1f93ff00" layoutX="1091.0" layoutY="33.0" radius="20.0" stroke="#252525" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="7.0" />
-      <ComboBox fx:id="cmbOptions" layoutX="1107.0" layoutY="20.0" prefHeight="26.0" prefWidth="171.0" styleClass="cmbOptionsHome" />
+      <ComboBox fx:id="cmbOptions" layoutX="1107.0" layoutY="20.0" prefHeight="26.0" prefWidth="171.0" promptText="Opciones" styleClass="cmbOptionsHome" />
    </children>
 </AnchorPane>

@@ -13,4 +13,6 @@ public class PathUtilities {
     public static final String PLAYLIST = "/view/PlaylistItem.fxml";
     public static final String SINGER = "/view/Singer.fxml";
     public static final String USER_FILE_LOGGED = "src/main/resources/persistence/activo.txt";
+    public static final String ITEMSONG = "/view/ItemSong.fxml";
+    public static final String SEARCHITEMS = "/view/SearchSong.fxml";
 }

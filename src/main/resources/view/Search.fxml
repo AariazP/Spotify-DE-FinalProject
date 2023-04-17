@@ -37,14 +37,9 @@
                   <TextField layoutX="30.0" prefHeight="31.0" prefWidth="256.0" promptText="¿Qué quieres escuchar?" styleClass="text-field-search" />
                </children>
             </AnchorPane>
-            <ComboBox fx:id="cmbFilter" prefHeight="34.0" prefWidth="122.0" promptText="Cancion" styleClass="cmbFilterSongs">
-               <HBox.margin>
-                  <Insets left="30.0" />
-               </HBox.margin>
-            </ComboBox>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="pane-perfil">
                <HBox.margin>
-                  <Insets left="540.0" />
+                  <Insets left="680.0" />
                </HBox.margin>
                <children>
                   <ComboBox fx:id="cmbOptions" layoutX="39.0" layoutY="4.0" prefHeight="26.0" prefWidth="150.0" promptText="Opciones" styleClass="cmbOptionsSearch" />

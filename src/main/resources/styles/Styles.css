@@ -361,3 +361,36 @@
         -fx-text-alignment: center;
         -fx-cursor: TEXT;
 }
+
+.scrollPaneSongs{
+    -fx-background-color: TRANSPARENT;
+    -fx-border-color: TRANSPARENT;
+}
+
+.scrollPaneSongs > .viewport {
+    -fx-background-color: transparent;
+}
+
+.lblNameSong{
+    -fx-text-fill: RGB(255,255,255);
+    -fx-font: 15px "Product Sans" ;
+    -fx-text-alignment: left;
+}
+
+.menu-item{
+    -fx-background-color: #252525;
+    -fx-border-color: #252525;
+    -fx-text-fill: RGB(255,255,255);
+    -fx-font: 13px "Product Sans" ;
+    -fx-text-alignment: center;
+    -fx-cursor: hand;
+}
+
+.context-menu{
+    -fx-background-color: #252525;
+    -fx-border-color: #252525;
+    -fx-text-fill: RGB(255,255,255);
+    -fx-font: 13px "Product Sans" ;
+    -fx-text-alignment: center;
+    -fx-cursor: hand;
+}
