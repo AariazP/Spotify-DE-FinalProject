@@ -40,14 +40,6 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#252525" height="41.0" layoutX="1051.0" layoutY="23.0" stroke="#252525" strokeType="INSIDE" style="-fx-arc-height: 25; -fx-arc-width: 25;" width="220.0" x="10.0" y="-10.0" />
-      <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="1068.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" x="10.0" y="-10.0">
-         <image>
-            <Image url="@../images/unverano.jpg" />
-         </image>
-      </ImageView>
-      <Circle fill="#1f93ff00" layoutX="1091.0" layoutY="33.0" radius="20.0" stroke="#252525" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="7.0" />
-      <ComboBox fx:id="cmbOptions" layoutX="1107.0" layoutY="23.0" prefHeight="26.0" prefWidth="171.0" style="-fx-background-color: #252525;" />
       <HBox prefHeight="77.0" prefWidth="1355.0">
          <children>
             <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="29.0" styleClass="Button-previous-next" text="&lt;">
@@ -135,5 +127,13 @@
             </AnchorPane>
         </content>
       </ScrollPane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#252525" height="41.0" layoutX="1051.0" layoutY="23.0" stroke="#252525" strokeType="INSIDE" style="-fx-arc-height: 25; -fx-arc-width: 25;" width="220.0" x="10.0" y="-10.0" />
+      <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="1068.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" x="10.0" y="-10.0">
+         <image>
+            <Image url="@../images/unverano.jpg" />
+         </image>
+      </ImageView>
+      <Circle fill="#1f93ff00" layoutX="1091.0" layoutY="33.0" radius="20.0" stroke="#252525" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="7.0" />
+      <ComboBox fx:id="cmbOptions" layoutX="1107.0" layoutY="20.0" prefHeight="26.0" prefWidth="171.0" styleClass="cmbOptionsHome" />
    </children>
 </AnchorPane>

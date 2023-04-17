@@ -146,8 +146,7 @@ public class LeftBarController extends Controller{
         mediaPlayer.currentTimeProperty().addListener((observableValue, duration, current) -> {
             lblInstant.setText((current.toSeconds())+""); // actualiza el label con el tiempo actual de la canción
         });
-        isPlaying = !isPlaying;
-        if (isPlaying == true) {
+        if (isPlaying) {
             imgPlay.setImage(new Image(ViewUtilities.PAUSE));
             mediaPlayer.play();
             new Thread(sliderUpdater).start(); // inicia el hilo para actualizar el slider
@@ -156,6 +155,7 @@ public class LeftBarController extends Controller{
             mediaPlayer.pause();
         }
         setVolume();
+        isPlaying = !isPlaying;
     }
 
 

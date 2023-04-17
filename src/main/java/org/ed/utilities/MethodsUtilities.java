@@ -3,6 +3,7 @@ package org.ed.utilities;
 import java.io.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class MethodsUtilities {
@@ -99,5 +100,17 @@ public class MethodsUtilities {
             System.out.println("Ha ocurrido un error al leer el archivo: " + e.getMessage());
         }
         return "a a";
+    }
+
+
+    public static ArrayList<String> getOptions() {
+        ArrayList<String> options = new ArrayList<>();
+        options.add("Cuenta");
+        options.add("Sesión privada");
+        options.add("Preferencias");
+        options.add("Perfil");
+        options.add("Acerca de");
+        options.add( "Cerrar sesión");
+        return options;
     }
 }

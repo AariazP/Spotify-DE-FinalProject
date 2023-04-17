@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane fx:id="pane" onMouseClicked="#playRecommend" onMouseEntered="#setCursor" onMouseExited="#setImage" prefHeight="75.0" prefWidth="370.0" style="-fx-background-color: Transparent;" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ed.controllers.RecommendController">
+   <children>
+      <Rectangle fx:id="rectangle" arcWidth="5.0" fill="#2424248c" height="77.0" layoutX="-2.0" layoutY="-2.0" stroke="TRANSPARENT" strokeType="INSIDE" width="372.0" />
+      <HBox prefHeight="75.0" prefWidth="370.0">
+         <children>
+            <ImageView fx:id="imgRecommend" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/feid.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblRecommend" prefHeight="76.0" prefWidth="164.0" styleClass="lblRecommedn" text="Mix Feid" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin></Label>
+            <ImageView fx:id="imgPlay" fitHeight="40.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../images/pauseRecommend.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="40.0" top="17.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

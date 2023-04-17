@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane prefHeight="887.0" prefWidth="1337.0" style="-fx-background-color: #181818;" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ed.controllers.SearchSongsController">
+   <children>
+      <VBox layoutX="8.0" layoutY="17.0" prefHeight="318.0" prefWidth="1313.0">
+         <children>
+            <HBox prefHeight="345.0" prefWidth="1313.0">
+               <children>
+                  <AnchorPane prefHeight="318.0" prefWidth="871.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="7.0" styleClass="lblHome" stylesheets="@../styles/Styles.css" text="Resultado más relevante" textFill="WHITE" />
+                        <AnchorPane layoutX="16.0" layoutY="49.0" prefHeight="270.0" prefWidth="563.0" style="-fx-background-color: #252525;" />
+                     </children>
+                  </AnchorPane>
+                  <VBox prefHeight="319.0" prefWidth="915.0">
+                     <children>
+                        <Label styleClass="lblHome" text="Canciones" />
+                        <ScrollPane prefHeight="290.0" prefWidth="679.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="283.0" prefWidth="664.0" />
+                          </content>
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </ScrollPane>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

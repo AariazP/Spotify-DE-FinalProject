@@ -7,6 +7,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import lombok.Getter;
 import lombok.Setter;
+import org.ed.utilities.MethodsUtilities;
 import org.ed.utilities.PathUtilities;
 
 @Setter
@@ -33,7 +34,7 @@ public class HomeController extends Controller{
 
 
     void initializable() {
-        cmbOptions.getItems().addAll("Cuenta", "Perfil", "Sesión privada", "Preferencias", "Cerrar sesión", "Acerca de");
+        MethodsUtilities.getOptions().forEach(option -> cmbOptions.getItems().add(option));
         cmbOptions.setOnAction(event -> {
             loadSettings();
         });

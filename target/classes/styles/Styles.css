@@ -317,7 +317,7 @@
 .text-field-search{
     -fx-background-color: #FFFFFF;
     -fx-text-fill: RGB(0,0,0);
-    -fx-font: 10px "Product Sans" ;
+    -fx-font: 15px "Product Sans" ;
     -fx-text-alignment: center;
     -fx-cursor: TEXT;
     -fx-border-color: #FFFFFF;
@@ -327,4 +327,37 @@
     -fx-background-color: RGB(5,5,5);
     -fx-border-radius: 30;
     -fx-background-radius: 30;
+}
+
+.cmbFilterSongs{
+
+    -fx-background-color: RGB(255,255,255);
+    -fx-background-radius: 100;
+    -fx-border-radius: 100;
+    -fx-text-fill: RGB(0,0,0);
+    -fx-font: 12px "Product Sans" ;
+    -fx-text-alignment: right;
+    -fx-cursor: TEXT;
+}
+
+.cmbOptionsSearch{
+
+        -fx-background-color: RGB(0,0,0);
+        -fx-background-radius: 100;
+        -fx-border-radius: 100;
+        -fx-text-fill: RGB(255,255,255);
+        -fx-font: 15px "Product Sans" ;
+        -fx-text-alignment: center;
+        -fx-cursor: TEXT;
+}
+
+.cmbOptionsHome{
+
+        -fx-background-color: #252525;
+        -fx-background-radius: 100;
+        -fx-border-radius: 100;
+        -fx-text-fill: RGB(255,255,255);
+        -fx-font: 15px "Product Sans" ;
+        -fx-text-alignment: center;
+        -fx-cursor: TEXT;
 }
