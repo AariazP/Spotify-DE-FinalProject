@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
+import org.ed.patterns.MainFactory;
 
 public class ItemVideoController extends Controller{
 
@@ -39,10 +40,12 @@ public class ItemVideoController extends Controller{
 
     @FXML
     void loadVideo(MouseEvent event) {
-
         getMain().loadVideo();
+    }
 
-
+    @FXML
+    void initialize(){
+        super.setMain(MainFactory.getMain());
     }
 
 

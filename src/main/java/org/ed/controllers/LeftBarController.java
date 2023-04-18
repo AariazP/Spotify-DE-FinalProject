@@ -200,10 +200,13 @@ public class LeftBarController extends Controller{
             loader = getMain().loadFXML(PathUtilities.HOME);
             paneHome = loader.load();
             Controller controller = loader.getController();
-            controller.setMain(getMain());
-            HomeController homeController = (HomeController) controller;
+            loader = getMain().loadFXML(PathUtilities.HOME);
+            paneHome = loader.load();
+            HomeController homeController =  loader.getController() ;
             homeController.setLeftBarController(this);
-            homeController.initializable();
+            paneCenter.getChildren().clear();
+            paneCenter.getChildren().add(paneHome);
+            homeController.setLeftBarController(this);
             paneCenter.getChildren().clear();
             paneCenter.getChildren().add(paneHome);
         } catch (Exception e) {

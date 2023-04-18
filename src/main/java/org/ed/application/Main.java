@@ -9,6 +9,7 @@ import javafx.stage.StageStyle;
 import org.ed.controllers.Controller;
 import org.ed.controllers.LeftBarController;
 import org.ed.model.Domain;
+import org.ed.patterns.MainFactory;
 import org.ed.services.DBConnection;
 import org.ed.utilities.PathUtilities;
 import org.ed.utilities.ViewUtilities;
@@ -33,6 +34,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage){
+        MainFactory.setMain(this);
         stage = primaryStage;
         inicializarVentana(false);
         if(Domain.getInstance().isUserLogged()){

@@ -7,6 +7,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import lombok.Getter;
 import lombok.Setter;
+import org.ed.patterns.MainFactory;
 import org.ed.utilities.MethodsUtilities;
 import org.ed.utilities.PathUtilities;
 
@@ -32,8 +33,9 @@ public class HomeController extends Controller{
     private HBox HBoxFavoritesSongs;
 
 
-
-    void initializable() {
+    @FXML
+    void initialize() {
+        super.setMain(MainFactory.getMain());
         MethodsUtilities.getOptions().forEach(option -> cmbOptions.getItems().add(option));
         cmbOptions.setOnAction(event -> {
             loadSettings();
