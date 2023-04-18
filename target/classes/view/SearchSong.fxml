@@ -3,9 +3,13 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="887.0" prefWidth="1337.0" style="-fx-background-color: #181818;" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ed.controllers.SearchSongsController">
    <children>
@@ -13,21 +17,51 @@
          <children>
             <HBox prefHeight="345.0" prefWidth="1313.0">
                <children>
-                  <AnchorPane prefHeight="318.0" prefWidth="871.0">
+                  <AnchorPane prefHeight="345.0" prefWidth="550.0">
                      <children>
                         <Label layoutX="14.0" layoutY="7.0" styleClass="lblHome" stylesheets="@../styles/Styles.css" text="Resultado más relevante" textFill="WHITE" />
-                        <AnchorPane layoutX="16.0" layoutY="49.0" prefHeight="270.0" prefWidth="563.0" style="-fx-background-color: #252525;" />
+                        <AnchorPane layoutX="16.0" layoutY="49.0" prefHeight="270.0" prefWidth="506.0" style="-fx-background-color: #252525; -fx-background-radius: 20;">
+                           <children>
+                              <ImageView fitHeight="109.0" fitWidth="167.0" layoutX="290.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/feid.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="38.0" layoutY="62.0" prefHeight="75.0" prefWidth="217.0" styleClass="lblSongRecommend" text="Feid" />
+                              <Label layoutX="34.0" layoutY="200.0" prefHeight="38.0" prefWidth="218.0" styleClass="lblHome" text="Feid ft Feid" />
+                              <AnchorPane layoutX="187.0" layoutY="201.0" prefHeight="47.0" prefWidth="160.0" style="-fx-background-color: #101010; -fx-border-radius: 40; -fx-background-radius: 40;">
+                                 <children>
+                                    <Label layoutX="42.0" layoutY="12.0" text="Canción" textFill="WHITE">
+                                       <font>
+                                          <Font size="19.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <ImageView fitHeight="85.0" fitWidth="93.0" layoutX="389.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/pauseRecommend.png" />
+                                 </image>
+                              </ImageView>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="117.0" layoutX="288.0" layoutY="28.0" stroke="#252525" strokeType="INSIDE" strokeWidth="4.0" style="-fx-arc-height: 20; -fx-arc-width: 20;" width="113.0" />
+                           </children></AnchorPane>
                      </children>
                   </AnchorPane>
                   <VBox prefHeight="319.0" prefWidth="915.0">
                      <children>
-                        <Label styleClass="lblHome" text="Canciones" />
-                        <ScrollPane hbarPolicy="NEVER" prefHeight="290.0" prefWidth="679.0" styleClass="scrollPaneSongs">
+                        <Label styleClass="lblHome" text="Canciones">
                            <VBox.margin>
-                              <Insets top="15.0" />
+                              <Insets left="90.0" />
+                           </VBox.margin></Label>
+                        <ScrollPane hbarPolicy="NEVER" prefHeight="290.0" prefWidth="752.0" styleClass="scrollPaneSongs">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="50.0" top="15.0" />
                            </VBox.margin>
                            <content>
-                              <VBox fx:id="vBoxSongs" prefHeight="280.0" prefWidth="642.0" />
+                              <VBox fx:id="vBoxSongs" prefHeight="280.0" prefWidth="642.0">
+                                 <padding>
+                                    <Insets left="50.0" />
+                                 </padding></VBox>
                            </content>
                         </ScrollPane>
                      </children>
@@ -37,19 +71,47 @@
                   </VBox>
                </children>
             </HBox>
-            <Label prefHeight="32.0" prefWidth="171.0" styleClass="lblHome" text="Videos">
+            <HBox prefHeight="61.0" prefWidth="1313.0">
+               <children>
+                  <Label prefHeight="112.0" prefWidth="348.0" styleClass="lblHome" text="Videos">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label prefHeight="60.0" prefWidth="279.0" styleClass="lblHome" text="Podcast">
+                     <HBox.margin>
+                        <Insets left="240.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
                <VBox.margin>
-                  <Insets left="15.0" top="20.0" />
+                  <Insets bottom="30.0" />
                </VBox.margin>
-            </Label>
-            <ScrollPane prefHeight="451.0" prefWidth="1313.0" styleClass="scrollPaneSongs">
-               <VBox.margin>
-                  <Insets left="15.0" right="15.0" />
-               </VBox.margin>
-               <content>
-                  <VBox fx:id="vBoxVideos" prefHeight="447.0" prefWidth="1268.0" />
-               </content>
-            </ScrollPane>
+            </HBox>
+            <HBox prefHeight="430.0" prefWidth="1313.0">
+               <children>
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="430.0" prefWidth="596.0" styleClass="scrollPaneSongs">
+                     <content>
+                        <VBox fx:id="vBoxVideos" prefHeight="393.0" prefWidth="576.0" />
+                     </content>
+                     <HBox.margin>
+                        <Insets bottom="30.0" />
+                     </HBox.margin>
+                  </ScrollPane>
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="430.0" prefWidth="669.0" styleClass="scrollPaneHome">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="391.0" prefWidth="651.0">
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </AnchorPane>
+                    </content>
+                     <HBox.margin>
+                        <Insets bottom="30.0" left="50.0" right="30.0" />
+                     </HBox.margin>
+                  </ScrollPane>
+               </children>
+            </HBox>
          </children>
       </VBox>
    </children>

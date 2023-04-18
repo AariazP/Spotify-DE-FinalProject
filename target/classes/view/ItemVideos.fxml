@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.ed.controllers.ItemVideoController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane onMouseClicked="#loadVideo" onMouseEntered="#activateElemente" onMouseExited="#desactiveElements" prefHeight="70.0" prefWidth="550.0" style="-fx-background-color: #181818;" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ed.controllers.ItemVideoController">
+   <children>
+      <ImageView fitHeight="37.0" fitWidth="43.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/feid.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="85.0" layoutY="14.0" prefHeight="32.0" prefWidth="212.0" styleClass="lblArtist" text="Video de Feid" />
+      <ImageView fx:id="imgYoutube" fitHeight="23.0" fitWidth="23.0" layoutX="456.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/youtubeGIF.gif" />
+         </image>
+      </ImageView>
+      <Rectangle fx:id="rectangleImage" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="23.0" layoutX="456.0" layoutY="22.0" stroke="#131313" strokeType="OUTSIDE" strokeWidth="3.0" width="23.0" />
+      <Label fx:id="lblOptions" layoutX="513.0" layoutY="11.0" prefHeight="19.0" prefWidth="18.0" styleClass="lblHome" text="..." />
+      <ImageView fx:id="imgLike" fitHeight="27.0" fitWidth="50.0" layoutX="402.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/heart-empty.png" />
+         </image>
+      </ImageView>
+   </children>
 </AnchorPane>

@@ -394,3 +394,13 @@
     -fx-text-alignment: center;
     -fx-cursor: hand;
 }
+
+
+
+.lblSongRecommend{
+
+    -fx-text-fill: RGB(255,255,255);
+    -fx-font: 35px "Product Sans" ;
+    -fx-text-alignment: left;
+
+}

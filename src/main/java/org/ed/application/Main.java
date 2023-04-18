@@ -20,6 +20,7 @@ import java.util.Objects;
 public class Main extends Application {
 
     private Stage stage;
+    private Scene scenePrevious;
 
     public static void main(String[] args) {
 
@@ -91,4 +92,12 @@ public class Main extends Application {
     }
 
 
+    public void loadVideo() {
+
+        scenePrevious = stage.getScene();
+        loadStage(PathUtilities.VIDEOVIEW);
+
+
+
+    }
 }
