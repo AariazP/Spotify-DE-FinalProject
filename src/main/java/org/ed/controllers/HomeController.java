@@ -11,9 +11,11 @@ import org.ed.patterns.MainFactory;
 import org.ed.utilities.MethodsUtilities;
 import org.ed.utilities.PathUtilities;
 
+import java.io.IOException;
+
 @Setter
 @Getter
-public class HomeController extends Controller{
+public class HomeController extends Controller {
 
 
     private LeftBarController leftBarController;
@@ -34,60 +36,43 @@ public class HomeController extends Controller{
 
 
     @FXML
-    void initialize() {
+    void initialize() throws Exception {
+
         super.setMain(MainFactory.getMain());
         MethodsUtilities.getOptions().forEach(option -> cmbOptions.getItems().add(option));
-        cmbOptions.setOnAction(event -> {
-            loadSettings();
-        });
+        cmbOptions.setOnAction(event -> loadSettings());
         loadRecommendations();
         loadRecentlyListen();
+
     }
 
-    private void loadRecentlyListen() {
-        try {
-            for (int i = 0; i < 20; i++){
-                Pane pane = getMain().loadFXML(PathUtilities.SINGER).load();
-                pane.setStyle("-fx-start-margin: 30px; -fx-end-margin: 30px;");
-                HBoxRecentlyListen.getChildren().add(pane);
-            }
-            for (int i = 0; i < 20; i++){
-                Pane pane = getMain().loadFXML(PathUtilities.SINGER).load();
-                pane.setStyle("-fx-start-margin: 30px; -fx-end-margin: 30px;");
-                HBoxMixes.getChildren().add(pane);
-            }
-            for (int i = 0; i < 20; i++){
-                Pane pane = getMain().loadFXML(PathUtilities.SINGER).load();
-                pane.setStyle("-fx-start-margin: 30px; -fx-end-margin: 30px;");
-                HBoxFavoritesSongs.getChildren().add(pane);
-            }
-            for (int i = 0; i < 20; i++){
-                Pane pane = getMain().loadFXML(PathUtilities.SINGER).load();
-                pane.setStyle("-fx-start-margin: 30px; -fx-end-margin: 30px;");
-                HBoxFavoritesArtist.getChildren().add(pane);
-            }
+    private void loadRecentlyListen() throws IOException {
+        for (int i = 0; i < 20; i++) {
+            Pane pane = getMain().loadFXML(PathUtilities.SINGER).load();
+            pane.setStyle("-fx-start-margin: 30px; -fx-end-margin: 30px;");
+            HBoxRecentlyListen.getChildren().add(pane);
 
+            Pane pane2 = getMain().loadFXML(PathUtilities.SINGER).load();
+            pane2.setStyle("-fx-start-margin: 30px; -fx-end-margin: 30px;");
+            HBoxMixes.getChildren().add(pane2);
 
-        }catch (Exception e) {
-            e.printStackTrace();
+            Pane pane3 = getMain().loadFXML(PathUtilities.SINGER).load();
+            pane3.setStyle("-fx-start-margin: 30px; -fx-end-margin: 30px;");
+            HBoxFavoritesSongs.getChildren().add(pane3);
+
+            Pane pane4 = getMain().loadFXML(PathUtilities.SINGER).load();
+            pane4.setStyle("-fx-start-margin: 30px; -fx-end-margin: 30px;");
+            HBoxFavoritesArtist.getChildren().add(pane4);
         }
 
 
-
     }
 
-    private void loadRecommendations() {
-        try {
-            gridRecommend.getChildren().clear();
-            gridRecommend.add(getMain().loadFXML(PathUtilities.RECOMMEND).load(), 0, 0);
-            gridRecommend.add(getMain().loadFXML(PathUtilities.RECOMMEND).load(), 1, 0);
-            gridRecommend.add(getMain().loadFXML(PathUtilities.RECOMMEND).load(), 2, 0);
-            gridRecommend.add(getMain().loadFXML(PathUtilities.RECOMMEND).load(), 0, 1);
-            gridRecommend.add(getMain().loadFXML(PathUtilities.RECOMMEND).load(), 1, 1);
-            gridRecommend.add(getMain().loadFXML(PathUtilities.RECOMMEND).load(), 2, 1);
+    private void loadRecommendations() throws Exception {
 
-        }catch (Exception e) {
-            e.printStackTrace();
+        gridRecommend.getChildren().clear();
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 2; j++) gridRecommend.add(getMain().loadFXML(PathUtilities.RECOMMEND).load(), i, j);
         }
 
     }

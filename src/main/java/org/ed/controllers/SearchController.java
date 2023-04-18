@@ -7,6 +7,7 @@ import javafx.scene.layout.AnchorPane;
 import lombok.Getter;
 import lombok.Setter;
 import javafx.scene.control.Button;
+import org.ed.patterns.MainFactory;
 import org.ed.utilities.MethodsUtilities;
 import org.ed.utilities.PathUtilities;
 
@@ -31,16 +32,15 @@ public class SearchController extends Controller {
     @FXML
     private AnchorPane paneResults;
 
-    public void initializable() {
+    @FXML
+    public void initialize() {
+        super.setMain(MainFactory.getMain());
         try {
             MethodsUtilities.getOptions().forEach(option -> cmbOptions.getItems().add(option));
 
             //cargo el panel de resultados
             FXMLLoader fxml = getMain().loadFXML(PathUtilities.SEARCHITEMS);
             AnchorPane paneAux = fxml.load();
-            SearchSongsController controller = fxml.getController();
-            controller.setMain(getMain());
-            controller.initializable();
             paneResults.getChildren().add(paneAux);
 
         } catch (IOException e) {

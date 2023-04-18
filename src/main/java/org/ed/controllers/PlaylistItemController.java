@@ -3,6 +3,7 @@ package org.ed.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import org.ed.patterns.MainFactory;
 
 public class PlaylistItemController extends Controller{
 
@@ -24,6 +25,7 @@ public class PlaylistItemController extends Controller{
 
     @FXML
     void initialize() {
+        super.setMain(MainFactory.getMain());
         lblNombrePlaylist.setText("Playlist número" + id);
         id++;
     }

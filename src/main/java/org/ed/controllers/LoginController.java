@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import org.ed.model.Domain;
+import org.ed.patterns.MainFactory;
 import org.ed.utilities.MethodsUtilities;
 import org.ed.utilities.PathUtilities;
 
@@ -100,6 +101,11 @@ public class LoginController extends Controller{
             lblIngresaContrasenia.setVisible(false);
         }
 
+    }
+
+    @FXML
+    void initialize(){
+        super.setMain(MainFactory.getMain());
     }
 
 }

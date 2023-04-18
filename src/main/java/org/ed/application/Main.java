@@ -6,14 +6,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import org.ed.controllers.Controller;
-import org.ed.controllers.LeftBarController;
 import org.ed.model.Domain;
 import org.ed.patterns.MainFactory;
 import org.ed.services.DBConnection;
 import org.ed.utilities.PathUtilities;
 import org.ed.utilities.ViewUtilities;
-
 import java.io.IOException;
 import java.util.Objects;
 
@@ -36,7 +33,7 @@ public class Main extends Application {
     public void start(Stage primaryStage){
         MainFactory.setMain(this);
         stage = primaryStage;
-        inicializarVentana(false);
+        inicializarVentana();
         if(Domain.getInstance().isUserLogged()){
             loadStage(PathUtilities.LEFT_BAR);
         } else {
@@ -48,13 +45,13 @@ public class Main extends Application {
     /**
      * Method that initializes the window with the desired characteristics
      */
-    private void inicializarVentana(boolean flag) {
+    private void inicializarVentana() {
         //la ventana no se puede redimensionar
         stage.setResizable(false);
         //la ventana se abre en pantalla completa
         stage.setFullScreen(true);
         //la ventana no tiene bordes
-        if(!flag) stage.initStyle(StageStyle.UNDECORATED);
+        stage.initStyle(StageStyle.UNDECORATED);
         //cambio el icono de la ventana
         stage.getIcons().add(ViewUtilities.getIcon("logo"));
     }
@@ -64,27 +61,15 @@ public class Main extends Application {
      * @param path path of the fxml file
      */
     public void loadStage(String path){
-        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(path)));
         try {
+            FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource(path)));
             Pane pane = loader.load();
-            Controller controller = loader.getController();
-            controller.setMain(this);
-            loadHome(controller);
             Scene scene = new Scene(pane);
             stage.setScene(scene);
-            inicializarVentana(true);
+            inicializarVentana();
             stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
-        }
-
-
-    }
-
-    private void loadHome(Controller controller) {
-        if(controller instanceof LeftBarController){
-            ((LeftBarController) controller).loadHomeFXML();
-            ((LeftBarController) controller).loadPlaylist();
         }
     }
 
@@ -95,11 +80,7 @@ public class Main extends Application {
 
 
     public void loadVideo() {
-
         scenePrevious = stage.getScene();
         loadStage(PathUtilities.VIDEOVIEW);
-
-
-
     }
 }
