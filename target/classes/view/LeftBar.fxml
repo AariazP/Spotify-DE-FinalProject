@@ -119,13 +119,13 @@
             </HBox.margin>
             <Image url="@../images/heart-empty.png" />
          </ImageView>
-         <VBox prefHeight="93.0" prefWidth="819.0">
+         <VBox prefHeight="93.0" prefWidth="789.0">
             <HBox.margin>
                <Insets left="70.0" />
             </HBox.margin>
-            <HBox prefHeight="52.0" prefWidth="1034.0">
+            <HBox prefHeight="36.0" prefWidth="819.0">
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets top="25.0" />
                </VBox.margin>
                <ImageView fitHeight="36.0" fitWidth="25.0" onMouseClicked="#randomSongs" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: Hand;">
                   <HBox.margin>
@@ -158,15 +158,15 @@
                   <Image url="@../images/replay.png" />
                </ImageView>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox prefHeight="41.0" prefWidth="819.0">
                <Label fx:id="lblInstant" styleClass="downBar-items" text="0:00">
                   <HBox.margin>
                      <Insets top="5.0" />
                   </HBox.margin>
                </Label>
-               <Slider fx:id="sliderSong" onMouseClicked="#setInstant" onMouseDragged="#setInstant" onMouseEntered="#setInstant" onMouseExited="#setInstant" prefHeight="16.0" prefWidth="614.0" style="-fx-cursor: Hand;">
+               <Slider fx:id="sliderSong" prefHeight="16.0" prefWidth="614.0" style="-fx-cursor: Hand;">
                   <HBox.margin>
-                     <Insets left="20.0" right="20.0" top="5.0" />
+                     <Insets left="50.0" right="50.0" top="5.0" />
                   </HBox.margin>
                </Slider>
                <Label fx:id="lblDuracion" layoutX="1035.0" layoutY="10.0" styleClass="downBar-items" text="3:28">

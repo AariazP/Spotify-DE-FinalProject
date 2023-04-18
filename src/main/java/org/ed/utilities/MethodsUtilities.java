@@ -113,4 +113,16 @@ public class MethodsUtilities {
         options.add( "Cerrar sesión");
         return options;
     }
+
+    /**
+     * This method converts seconds to minutes and seconds.
+     * @param seconds The seconds to convert.
+     * @return The minutes and seconds.
+     */
+    public static String convertToMinutesSeconds(double seconds) {
+        int minutes = (int) (seconds / 60);
+        int secondsInt = (int) (seconds % 60);
+        if(secondsInt < 10) return minutes + ":0" + secondsInt;
+        return minutes + ":" + secondsInt;
+    }
 }

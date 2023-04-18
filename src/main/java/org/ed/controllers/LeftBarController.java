@@ -1,5 +1,6 @@
 package org.ed.controllers;
 
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -11,7 +12,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 import org.ed.patterns.MainFactory;
+import org.ed.utilities.MethodsUtilities;
 import org.ed.utilities.PathUtilities;
 import org.ed.utilities.ViewUtilities;
 
@@ -63,8 +66,6 @@ public class LeftBarController extends Controller {
     @FXML
     private VBox VBoxPlaylist;
 
-
-    private boolean isPlaying = false;
 
     @FXML
     void createPlaylist(MouseEvent event) {
@@ -126,22 +127,29 @@ public class LeftBarController extends Controller {
     public void play(String path) {
         Media media = new Media(path);
         mediaPlayer = new MediaPlayer(media);
-        sliderSong.setShowTickLabels(true);
-        SliderUpdater sliderUpdater = new SliderUpdater(sliderSong, mediaPlayer); // crea el SliderUpdater
-        sliderSong.setMax(mediaPlayer.getTotalDuration().toMillis()); // actualiza el max del slider
+        Task<Void> sliderTask = new SliderUpdater(sliderSong, mediaPlayer);
+        sliderSong.valueProperty().bind(sliderTask.progressProperty());
+        new Thread(sliderTask).start();
+        sliderSong.setValue(0);
+        sliderSong.setMax(mediaPlayer.getTotalDuration().toSeconds()); // actualiza el max del slider
         mediaPlayer.currentTimeProperty().addListener((observableValue, duration, current) -> {
-            lblInstant.setText((current.toSeconds()) + ""); // actualiza el label con el tiempo actual de la canción
+            lblInstant.setText(MethodsUtilities.convertToMinutesSeconds(current.toSeconds())); // actualiza el label con el tiempo actual de la canción
         });
-        if (isPlaying) {
+
+
+        if (mediaPlayer.getStatus() != MediaPlayer.Status.PLAYING) {
+
             imgPlay.setImage(new Image(ViewUtilities.PAUSE));
             mediaPlayer.play();
-            new Thread(sliderUpdater).start(); // inicia el hilo para actualizar el slider
+
+
         } else {
+
             imgPlay.setImage(new Image(ViewUtilities.PLAY));
             mediaPlayer.pause();
+
         }
         setVolume();
-        isPlaying = !isPlaying;
     }
 
 
@@ -162,7 +170,8 @@ public class LeftBarController extends Controller {
 
     @FXML
     void setInstant(MouseEvent event) {
-
+        sliderSong.setValue(sliderSong.getValue());
+        sliderSong.setShowTickMarks(true);
     }
 
     @FXML
