@@ -4,11 +4,13 @@ import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -55,8 +57,8 @@ public class LeftBarController extends Controller {
     @FXML
     private Slider sliderSong;
     @FXML
-    private AnchorPane paneCenter;
-    private AnchorPane paneHome;
+    private ScrollPane paneCenter;
+    private ScrollPane paneHome;
     private AnchorPane paneSearch;
     @FXML
     private ImageView imgPlay;
@@ -82,8 +84,8 @@ public class LeftBarController extends Controller {
         if (paneHome == null) { // Si no se ha cargado
             loadHomeFXML();
         } else { // Si ya se cargo
-            paneCenter.getChildren().clear();
-            paneCenter.getChildren().add(paneHome);
+            paneCenter.setContent(paneHome);
+           // paneCenter.getChildren().add(paneHome);
         }
     }
 
@@ -102,8 +104,8 @@ public class LeftBarController extends Controller {
         if (paneSearch == null) { // Si no se ha cargado
             loadSearchFXML();
         } else { // Si ya se cargo
-            paneCenter.getChildren().clear();
-            paneCenter.getChildren().add(paneSearch);
+            //paneCenter.getChildren().clear();
+            //paneCenter.getChildren().add(paneSearch);
         }
     }
 
@@ -193,11 +195,13 @@ public class LeftBarController extends Controller {
         paneHome = getMain().loadFXML(PathUtilities.HOME).load();
         HomeController homeController = loader.getController();
         homeController.setLeftBarController(this);
-        paneCenter.getChildren().clear();
-        paneCenter.getChildren().add(paneHome);
+        paneCenter.setContent(paneHome);
+        //paneCenter.getChildren().clear();
+        //paneCenter.getChildren().add(paneHome);
         homeController.setLeftBarController(this);
-        paneCenter.getChildren().clear();
-        paneCenter.getChildren().add(paneHome);
+        paneCenter.setContent(paneHome);
+        //paneCenter.getChildren().clear();
+        //paneCenter.getChildren().add(paneHome);
 
     }
 
@@ -208,8 +212,8 @@ public class LeftBarController extends Controller {
         Controller controller = loader.getController();
         SearchController searchController = (SearchController) controller;
         searchController.setLeftBarController(this);
-        paneCenter.getChildren().clear();
-        paneCenter.getChildren().add(paneSearch);
+        //paneCenter.getChildren().clear();
+        //paneCenter.getChildren().add(paneSearch);
 
     }
 
@@ -218,6 +222,8 @@ public class LeftBarController extends Controller {
         for (int i = 0; i < 100; i++) VBoxPlaylist.getChildren().add(getMain().loadFXML(PathUtilities.PLAYLIST).load());
 
     }
+
+
 
     @FXML
     void initialize() throws IOException {
