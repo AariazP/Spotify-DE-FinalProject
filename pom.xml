@@ -69,13 +69,9 @@
             <artifactId>OwnerStructure</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>system</scope>
-            <systemPath>/Users/alejandroarias/Desktop/ownStructure.jar</systemPath>
+            <systemPath>${basedir}/lib/OwnerStructure.jar</systemPath>
         </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-web</artifactId>
-            <version>18.0.1</version>
-        </dependency>
+
     </dependencies>
     <build>
         <plugins>
