@@ -2,6 +2,7 @@ package org.ed.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -75,6 +76,13 @@ public class HomeController extends Controller {
             for (int j = 0; j < 2; j++) gridRecommend.add(getMain().loadFXML(PathUtilities.RECOMMEND).load(), i, j);
         }
 
+    }
+
+    @FXML
+    void salir(MouseEvent event) {
+
+
+        getMain().loadStage(PathUtilities.LOGIN);
     }
 
     private void loadSettings() {
