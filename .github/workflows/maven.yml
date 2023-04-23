@@ -24,8 +24,8 @@ jobs:
     - name: Set up JDK 19
       uses: actions/setup-java@v3
       with:
-        java-version: '19'
-        distribution: 'openjdk'
+        java-version: '19.0.2'
+        distribution: 'Oracle OpenJDK version 19.0.2'
         cache: maven
     - name: Build with Maven
       run: mvn -u -B package --file pom.xml

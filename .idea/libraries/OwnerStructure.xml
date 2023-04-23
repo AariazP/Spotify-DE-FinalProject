@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="ownStructure">
+  <library name="OwnerStructure">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../ownStructure.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/OwnerStructure.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
