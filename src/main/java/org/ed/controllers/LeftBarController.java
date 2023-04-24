@@ -59,7 +59,7 @@ public class LeftBarController extends Controller {
     @FXML
     private ScrollPane paneCenter;
     private ScrollPane paneHome;
-    private AnchorPane paneSearch;
+    private ScrollPane paneSearch;
     @FXML
     private ImageView imgPlay;
 
@@ -104,6 +104,7 @@ public class LeftBarController extends Controller {
         if (paneSearch == null) { // Si no se ha cargado
             loadSearchFXML();
         } else { // Si ya se cargo
+            paneCenter.setContent(paneSearch);
             //paneCenter.getChildren().clear();
             //paneCenter.getChildren().add(paneSearch);
         }
@@ -212,6 +213,7 @@ public class LeftBarController extends Controller {
         Controller controller = loader.getController();
         SearchController searchController = (SearchController) controller;
         searchController.setLeftBarController(this);
+        paneCenter.setContent(paneSearch);
         //paneCenter.getChildren().clear();
         //paneCenter.getChildren().add(paneSearch);
 
