@@ -127,9 +127,9 @@ public class LeftBarController extends Controller {
     public void play(String path) {
         Media media = new Media(path);
         mediaPlayer = new MediaPlayer(media);
-        Task<Void> sliderTask = new SliderUpdater(sliderSong, mediaPlayer);
-        sliderSong.valueProperty().bind(sliderTask.progressProperty());
-        new Thread(sliderTask).start();
+        SliderUpdater sliderTask = new SliderUpdater(sliderSong, mediaPlayer);
+        //sliderSong.valueProperty().bind(sliderTask.progressProperty());
+        new Thread(sliderTask, "hilo prueba").start();
         sliderSong.setValue(0);
         sliderSong.setMax(mediaPlayer.getTotalDuration().toSeconds()); // actualiza el max del slider
         mediaPlayer.currentTimeProperty().addListener((observableValue, duration, current) -> {

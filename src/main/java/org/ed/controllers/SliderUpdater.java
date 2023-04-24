@@ -9,7 +9,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SliderUpdater extends Task<Void>{
+public class SliderUpdater implements Runnable {
 
     private Slider slider;
     private MediaPlayer mediaPlayer;
@@ -21,12 +21,19 @@ public class SliderUpdater extends Task<Void>{
 
 
     @Override
-    protected Void call() throws Exception {
-        while (true) {
-            Platform.runLater(() -> slider.setValue(mediaPlayer.getCurrentTime().toSeconds()));
-            slider.setShowTickMarks(true);
-            Thread.sleep(100);
+    public void run() {
+
+        try {
+            while (true) {
+                Platform.runLater(() -> slider.setValue(mediaPlayer.getCurrentTime().toSeconds()));
+                slider.setShowTickMarks(true);
+                Thread.sleep(100);
+            }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
+
+
     }
 
 
