@@ -1,0 +1,406 @@
+.leftBar{
+    -fx-background-color: #242424;
+}
+
+.leftBarIcon{
+    -fx-font: 10px "Product Sans" ;
+    -fx-text-fill: #ffffff;
+    -fx-end-margin: 20px 0px 0px 10;
+    -fx-cursor: hand;
+}
+
+.LeftVbox{
+    -fx-background-color: #000000;
+}
+
+.pane-children{
+    -fx-background-color: #000000;
+}
+
+.scroll-pane{
+    -fx-border-color: #242424;
+}
+
+.scroll-pane :vertical{
+    -fx-background-color: TRANSPARENT;
+}
+
+.scroll-pane .scroll-bar:vertical > .increment-button,
+.scroll-pane .scroll-bar:vertical > .decrement-button {
+    -fx-padding: 0;
+    -fx-background-color: TRANSPARENT;
+}
+
+
+.downBar{
+    -fx-background-color: #242424;
+    -fx-border-color: #404040;
+}
+
+.downBar-items{
+    -fx-text-fill: #ffffff;
+    -fx-font: 15px "Product Sans" ;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-cursor: hand;
+}
+.slider:horizontal:selected .track {
+    -fx-background-color: blue;
+}
+
+
+.Button-previous-next{
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 100;
+    -fx-border-color: WHITE;
+    -fx-border-radius: 100;
+    -fx-cursor: hand;
+    -fx-text-fill: WHITE;
+}
+
+.lblSaludo{
+    -fx-text-fill: #ffffff;
+    -fx-font: 23px "Product Sans" ;
+    -fx-text-alignment: center;
+}
+
+
+.firstitem{
+
+    -fx-text-fill: #ffffff;
+    -fx-font: 60px "Product Sans" ;
+    -fx-cursor: hand;
+}
+
+.backgroundPane{
+    -fx-background-color: #ffffff;
+}
+
+.facebook-style{
+
+    -fx-background-color: RGB(57,117,234);
+    -fx-border-radius: 100;
+    -fx-background-radius: 100;
+    -fx-border-color: #000000;
+    -fx-cursor: hand;
+
+}
+
+.iniciarSesion-label{
+    -fx-text-fill: #ffffff;
+    -fx-font: 20px "Product Sans" ;
+    -fx-text-alignment: left;
+
+}
+
+.apple-style{
+    -fx-background-color: RGB(25,25,25);
+    -fx-border-radius: 100;
+    -fx-background-radius: 100;
+    -fx-border-color: #000000;
+    -fx-cursor: hand;
+
+}
+
+.google-style{
+    -fx-background-color: RGB(255,255,255);
+    -fx-border-radius: 100;
+    -fx-background-radius: 100;
+    -fx-border-color: #000000;
+    -fx-cursor: hand;
+}
+
+
+.google-style-font{
+    -fx-text-fill: RGB(106,106,106);
+    -fx-font: 20px "Product Sans" ;
+    -fx-text-alignment: left;
+}
+
+.label-iniciarsesion{
+    -fx-text-fill: RGB(0,0,0);
+    -fx-font: 20px "Product Sans" ;
+    -fx-text-alignment: left;
+}
+
+
+.text-field-style{
+    -fx-background-color: RGB(255,255,255);
+    -fx-border-color: RGB(0,0,0);
+    -fx-prompt-text-fill: RGB(106, 106, 106);
+    -fx-font: 20px "Product Sans";
+}
+.checkbox .box{
+    -fx-background-color: RGB(255, 255, 255);
+    -fx-border-color: RGB(0,0,0);
+
+}
+
+.checkbox:selected .box {
+    -fx-background-color: RGB(72,153,79);
+}
+
+.Button{
+
+    -fx-background-color: RGB(101,212, 110);
+    -fx-border-radius: 60;
+    -fx-background-radius: 60;
+    -fx-text-fill: RGB(0,0,0);
+    -fx-font: 20px "Product Sans" ;
+    -fx-text-alignment: center;
+    -fx-cursor: hand;
+}
+
+.label-iniciarsesion-cuenta{
+    -fx-text-fill: RGB(0,0,0);
+    -fx-font: 25px "Product Sans" ;
+    -fx-text-alignment: left;
+}
+
+.registrarse-style-font{
+    -fx-text-fill: RGB(106,106,106);
+    -fx-font: 25px "Product Sans" ;
+    -fx-text-alignment: left;
+}
+
+.facebook-style-register{
+    -fx-background-color: RGB(69,89,163);
+    -fx-background-radius: 100;
+    -fx-border-radius: 100;
+}
+
+.birthday-font{
+    -fx-text-fill: RGB(0,0,0);
+    -fx-font: 15px "Product Sans" ;
+    -fx-text-alignment: left;
+}
+
+.combo-box-birthay{
+
+    -fx-background-color: RGB(255,255,255);
+    -fx-border-color: RGB(0,0,0);
+
+}
+
+
+.radio-button{
+
+    -fx-background-color: RGB(255,255,255);
+    -fx-text-fill: RGB(0,0,0);
+    -fx-font: 15px "Product Sans" ;
+
+}
+
+.checkbox{
+    -fx-text-fill: RGB(0,0,0);
+    -fx-font: 15px "Product Sans" ;
+    -fx-background-color: RGB(255,255,255);
+}
+
+.registrarse-button{
+    -fx-background-color: RGB(101,212,110);
+    -fx-font: 20px "Product Sans" ;
+    -fx-border-radius: 100;
+    -fx-background-radius: 100;
+    -fx-cursor: hand;
+}
+
+.alert-style{
+
+    -fx-background-color: RGB(51,112,226);
+    -fx-border-radius: 100;
+    -fx-background-radius: 100;
+}
+
+.alert-label-style{
+    -fx-text-fill: RGB(255,255,255);
+    -fx-font: 10px "Product Sans" ;
+    -fx-text-alignment: center;
+}
+
+
+.button1-alert-style{
+
+    -fx-background-color: TRANSPARENT;
+    -fx-text-fill: RGB(167,167,167);
+    -fx-font: 7px "Product Sans" ;
+    -fx-cursor: hand;
+}
+
+
+.button2-alert-style{
+
+    -fx-background-color: WHITE;
+    -fx-text-fill: RGB(0,0,0);
+    -fx-font: 7px "Product Sans";
+    -fx-border-radius: 100;
+    -fx-background-radius: 100;
+    -fx-border-color: WHITE;
+    -fx-cursor: hand;
+    -fx-text-alignment: center;
+
+
+}
+
+.pane-alert-style{
+    -fx-background-color: TRANSPARENT;
+
+}
+
+
+.alerts-wrong-label{
+
+    -fx-text-fill: #bd0606;
+    -fx-font: 15px "Product Sans" ;
+    -fx-text-alignment: center;
+}
+
+
+.scrollPaneHome{
+    -fx-background-color: TRANSPARENT;
+    -fx-border-color: TRANSPARENT;
+}
+
+.scrollPaneHome > .viewport {
+    -fx-background-color: transparent;
+}
+
+
+.lblRecommedn{
+    -fx-text-fill: RGB(255,255,255);
+    -fx-font: 23px "Product Sans" ;
+    -fx-text-alignment: left;
+}
+
+.scrollPaneHome .scroll-bar:vertical > .increment-button,
+.scroll-bar:vertical > .decrement-button {
+    -fx-background-insets: 0;
+    -fx-fit-to-height: true;
+    -fx-fit-to-width: true;
+}
+
+.lblHome{
+    -fx-text-fill: RGB(255,255,255);
+    -fx-font: 25px "Product Sans" ;
+    -fx-text-alignment: left;
+}
+
+.lblNameArtist{
+    -fx-text-fill: RGB(255,255,255);
+    -fx-font: 15px "Product Sans" ;
+    -fx-text-alignment: left;
+}
+
+.lblArtist{
+    -fx-text-fill: #a9a9a9;
+    -fx-font: 15px "Product Sans";
+    -fx-text-alignment: left;
+}
+
+.buttonBack-search{
+    -fx-background-color: TRANSPARENT;
+    -fx-text-fill: RGB(255,255,255);
+    -fx-font: 20px "Product Sans" ;
+    -fx-text-alignment: center;
+    -fx-cursor: hand;
+    -fx-border-color: WHITE;
+    -fx-border-radius: 100;
+    -fx-background-radius: 100;
+}
+
+.paneSearch-search{
+    -fx-background-color: WHITE;
+    -fx-border-radius: 30;
+    -fx-background-radius: 30;
+}
+
+.text-field-search{
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: RGB(0,0,0);
+    -fx-font: 15px "Product Sans" ;
+    -fx-text-alignment: center;
+    -fx-cursor: TEXT;
+    -fx-border-color: #FFFFFF;
+}
+
+.pane-perfil{
+    -fx-background-color: RGB(5,5,5);
+    -fx-border-radius: 30;
+    -fx-background-radius: 30;
+}
+
+.cmbFilterSongs{
+
+    -fx-background-color: RGB(255,255,255);
+    -fx-background-radius: 100;
+    -fx-border-radius: 100;
+    -fx-text-fill: RGB(0,0,0);
+    -fx-font: 12px "Product Sans" ;
+    -fx-text-alignment: right;
+    -fx-cursor: TEXT;
+}
+
+.cmbOptionsSearch{
+
+        -fx-background-color: RGB(0,0,0);
+        -fx-background-radius: 100;
+        -fx-border-radius: 100;
+        -fx-text-fill: RGB(255,255,255);
+        -fx-font: 15px "Product Sans" ;
+        -fx-text-alignment: center;
+        -fx-cursor: TEXT;
+}
+
+.cmbOptionsHome{
+
+        -fx-background-color: #252525;
+        -fx-background-radius: 100;
+        -fx-border-radius: 100;
+        -fx-text-fill: RGB(255,255,255);
+        -fx-font: 15px "Product Sans" ;
+        -fx-text-alignment: center;
+        -fx-cursor: TEXT;
+}
+
+.scrollPaneSongs{
+    -fx-background-color: TRANSPARENT;
+    -fx-border-color: TRANSPARENT;
+}
+
+.scrollPaneSongs > .viewport {
+    -fx-background-color: transparent;
+}
+
+.lblNameSong{
+    -fx-text-fill: RGB(255,255,255);
+    -fx-font: 15px "Product Sans" ;
+    -fx-text-alignment: left;
+}
+
+.menu-item{
+    -fx-background-color: #252525;
+    -fx-border-color: #252525;
+    -fx-text-fill: RGB(255,255,255);
+    -fx-font: 13px "Product Sans" ;
+    -fx-text-alignment: center;
+    -fx-cursor: hand;
+}
+
+.context-menu{
+    -fx-background-color: #252525;
+    -fx-border-color: #252525;
+    -fx-text-fill: RGB(255,255,255);
+    -fx-font: 13px "Product Sans" ;
+    -fx-text-alignment: center;
+    -fx-cursor: hand;
+}
+
+
+
+.lblSongRecommend{
+
+    -fx-text-fill: RGB(255,255,255);
+    -fx-font: 35px "Product Sans" ;
+    -fx-text-alignment: left;
+
+}
