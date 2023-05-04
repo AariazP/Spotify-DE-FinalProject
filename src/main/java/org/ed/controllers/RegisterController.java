@@ -7,6 +7,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import org.ed.model.Domain;
 import org.ed.model.User;
+import org.ed.patterns.MainFactory;
 import org.ed.patterns.UserBuilder;
 import org.ed.utilities.MethodsUtilities;
 import org.ed.utilities.PathUtilities;
@@ -312,6 +313,7 @@ public class RegisterController extends Controller{
 
     @FXML
     void initialize() {
+        setMain(MainFactory.getMain());
        ToggleGroup group = new ToggleGroup();
        radioMen.setToggleGroup(group);
        radioWoman.setToggleGroup(group);

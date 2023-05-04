@@ -1,5 +1,6 @@
 package org.ed.controllers;
 
+import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,13 +13,20 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.util.Duration;
 import org.ed.patterns.MainFactory;
 import org.ed.utilities.MethodsUtilities;
 import org.ed.utilities.PathUtilities;
 import org.ed.utilities.ViewUtilities;
+import org.jaudiotagger.audio.exceptions.InvalidAudioFrameException;
+import org.jaudiotagger.audio.exceptions.ReadOnlyFileException;
+import org.jaudiotagger.audio.mp3.MP3File;
+import org.jaudiotagger.tag.TagException;
 
+import java.io.File;
 import java.io.IOException;
+import java.sql.Time;
+import java.time.format.DateTimeFormatter;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class LeftBarController extends Controller {
 
@@ -119,23 +127,34 @@ public class LeftBarController extends Controller {
     }
 
     @FXML
-    void play(MouseEvent event) {
+    void play(MouseEvent event) throws TagException, InvalidAudioFrameException, ReadOnlyFileException, IOException {
         play("file:///Users/alejandroarias/Downloads/Bad-Bunny-Un-Verano-Sin-Ti/Bad-Bunny-Efecto.mp3");
     }
 
 
-    public void play(String path) {
+    public void play(String path) throws TagException, InvalidAudioFrameException, ReadOnlyFileException, IOException {
         Media media = new Media(path);
         mediaPlayer = new MediaPlayer(media);
-        SliderUpdater sliderTask = new SliderUpdater(sliderSong, mediaPlayer);
-        //sliderSong.valueProperty().bind(sliderTask.progressProperty());
-        new Thread(sliderTask, "hilo prueba").start();
         sliderSong.setValue(0);
-        sliderSong.setMax(mediaPlayer.getTotalDuration().toSeconds()); // actualiza el max del slider
+        File file = new File("/Users/alejandroarias/Downloads/Bad-Bunny-Un-Verano-Sin-Ti/Bad-Bunny-Efecto.mp3");
+        MP3File mp3file = new MP3File(file);
+        sliderSong.setMax( mp3file.getMP3AudioHeader().getTrackLength() ); // actualiza el max del slider
         mediaPlayer.currentTimeProperty().addListener((observableValue, duration, current) -> {
             lblInstant.setText(MethodsUtilities.convertToMinutesSeconds(current.toSeconds())); // actualiza el label con el tiempo actual de la canción
         });
 
+        new Thread(() -> {
+            while (true){
+                Platform.runLater(() -> {
+                    sliderSong.setValue((sliderSong.getValue()+1));
+                });
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }).start();
 
         if (mediaPlayer.getStatus() != MediaPlayer.Status.PLAYING) {
 

@@ -3,6 +3,8 @@ package org.ed.controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.layout.AnchorPane;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,14 +33,15 @@ public class SearchController extends Controller {
 
     @FXML
     private AnchorPane paneResults;
+    @FXML
+    private TextField txtSearch;
 
     @FXML
     public void initialize() {
         super.setMain(MainFactory.getMain());
         try {
-            MethodsUtilities.getOptions().forEach(option -> cmbOptions.getItems().add(option));
 
-            //cargo el panel de resultados
+            MethodsUtilities.getOptions().forEach(option -> cmbOptions.getItems().add(option));
             FXMLLoader fxml = getMain().loadFXML(PathUtilities.SEARCHITEMS);
             AnchorPane paneAux = fxml.load();
             paneResults.getChildren().add(paneAux);
@@ -46,6 +49,11 @@ public class SearchController extends Controller {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @FXML
+    void searchElement(InputMethodEvent event) {
+        System.out.println(txtSearch.getText());
     }
 
 

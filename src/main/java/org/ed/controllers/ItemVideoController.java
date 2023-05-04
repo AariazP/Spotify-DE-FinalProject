@@ -46,6 +46,9 @@ public class ItemVideoController extends Controller{
     @FXML
     void initialize(){
         super.setMain(MainFactory.getMain());
+        imgLike.setVisible(false);
+        imgYoutube.setVisible(false);
+        rectangleImage.setVisible(false);
     }
 
 

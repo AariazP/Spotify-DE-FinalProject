@@ -11,6 +11,7 @@ import org.ed.utilities.MethodsUtilities;
 @ToString
 @Setter
 @Getter
+
 public class Domain {
 
 

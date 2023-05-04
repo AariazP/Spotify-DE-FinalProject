@@ -51,7 +51,7 @@ public class Main extends Application {
         //la ventana se abre en pantalla completa
         stage.setFullScreen(true);
         //la ventana no tiene bordes
-        stage.initStyle(StageStyle.UNDECORATED);
+        if(!stage.isShowing()) stage.initStyle(StageStyle.UNDECORATED);
         //cambio el icono de la ventana
         stage.getIcons().add(ViewUtilities.getIcon("logo"));
     }
@@ -67,7 +67,7 @@ public class Main extends Application {
             Scene scene = new Scene(pane);
             stage.setScene(scene);
             inicializarVentana();
-            stage.show();
+            if(!stage.isShowing())stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

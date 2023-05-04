@@ -34,7 +34,7 @@
                         <Image url="@../images/lupa.png" />
                      </image>
                   </ImageView>
-                  <TextField layoutX="30.0" prefHeight="31.0" prefWidth="256.0" promptText="¿Qué quieres escuchar?" styleClass="text-field-search" />
+                  <TextField fx:id="txtSearch" layoutX="30.0" onInputMethodTextChanged="#searchElement" prefHeight="31.0" prefWidth="256.0" promptText="¿Qué quieres escuchar?" styleClass="text-field-search" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="pane-perfil">
