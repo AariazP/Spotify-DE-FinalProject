@@ -40,7 +40,12 @@ public class LoginController extends Controller{
                 MethodsUtilities.saveUser(txtEmailUser.getText(), txtPassword.getText());
             }
             getMain().loadStage(PathUtilities.LEFT_BAR);
-        } else {
+        }else if(Domain.getInstance().loginAdmin(txtEmailUser.getText(), txtPassword.getText())){
+
+            getMain().loadStage(PathUtilities.HOME_ADMIN);
+
+        }
+        else {
             lblFaliedSesion.setVisible(true);
         }
 

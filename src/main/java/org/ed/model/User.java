@@ -71,4 +71,8 @@ public class User {
     public static void setId(Long id) {
         auxId = ++id;
     }
+
+    public boolean isAdmin() {
+        return this instanceof Admin;
+    }
 }

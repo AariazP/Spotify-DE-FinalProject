@@ -17,4 +17,6 @@ public class PathUtilities {
     public static final String SEARCHITEMS = "/view/SearchSong.fxml";
     public static final String ITEMVIDEO = "/view/ItemVideos.fxml";
     public static final String VIDEOVIEW = "/view/Video.fxml";
+    public static final String HOME_ADMIN = "/view/HomeAdmin.fxml";
+    public static final String OPTIONS_MUSIC = "/view/OptionsMusic.fxml";
 }

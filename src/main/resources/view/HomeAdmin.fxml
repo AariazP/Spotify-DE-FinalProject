@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1054.0" prefWidth="1747.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ed.controllers.LeftBarController">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1054.0" prefWidth="1747.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ed.controllers.HomeAdminController">
    <left>
       <VBox prefHeight="1598.0" prefWidth="355.0" styleClass="LeftVbox" stylesheets="@../styles/Styles.css" BorderPane.alignment="CENTER">
          <children>
@@ -50,7 +50,7 @@
                   <Insets left="10.0" />
                </VBox.margin>
             </Label>
-            <Label onMouseClicked="#createPlaylist" prefHeight="63.0" prefWidth="355.0" styleClass="leftBarIcon" text="Opciones de Artistas">
+            <Label onMouseClicked="#createPlaylist" prefHeight="63.0" prefWidth="355.0" styleClass="leftBarIcon" text="Opciones de música">
                <graphic>
                   <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -60,30 +60,6 @@
                </graphic>
                <VBox.margin>
                   <Insets left="10.0" top="30.0" />
-               </VBox.margin>
-            </Label>
-            <Label onMouseClicked="#loadLikesSong" prefHeight="63.0" prefWidth="355.0" styleClass="leftBarIcon" text="Tus me gusta">
-               <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/heart.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <VBox.margin>
-                  <Insets left="15.0" />
-               </VBox.margin>
-            </Label>
-            <Label onMouseClicked="#loadEpisodes" prefHeight="63.0" prefWidth="355.0" styleClass="leftBarIcon" text="Tus episodios">
-               <graphic>
-                  <ImageView fitHeight="43.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/bookmark.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <VBox.margin>
-                  <Insets left="11.0" />
                </VBox.margin>
             </Label>
             <Separator prefWidth="200.0">

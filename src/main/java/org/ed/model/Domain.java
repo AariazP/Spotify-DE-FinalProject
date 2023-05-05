@@ -98,4 +98,13 @@ public class Domain {
             return false;
         }
     }
+
+    public boolean loginAdmin(String email, String password) {
+        try {
+            User user1 = iUser.read(email);
+            return user1.getPassword().equals(MethodsUtilities.hashPassword(password)) && user1.isAdmin();
+        } catch (CRUDException e) {
+            return false;
+        }
+    }
 }
