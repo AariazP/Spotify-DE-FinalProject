@@ -7,6 +7,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import org.ed.model.Domain;
 import org.ed.model.User;
+import org.ed.patterns.MainFactory;
 import org.ed.patterns.UserBuilder;
 import org.ed.utilities.MethodsUtilities;
 import org.ed.utilities.PathUtilities;
@@ -316,7 +317,7 @@ public class RegisterController extends Controller{
        radioMen.setToggleGroup(group);
        radioWoman.setToggleGroup(group);
        cmbMes.getItems().addAll("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-
+        super.setMain(MainFactory.getMain());
     }
 
 }

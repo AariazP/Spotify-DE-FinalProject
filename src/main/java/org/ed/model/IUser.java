@@ -13,6 +13,7 @@ public class IUser implements CRUDRepository<User> {
 
     private HashMap<String, User> users;
 
+
     public IUser() {
         users = new HashMap<>();
     }

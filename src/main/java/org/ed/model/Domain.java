@@ -18,16 +18,15 @@ public class Domain {
     private IUser iUser;
     private IAlbum iAlbum;
     private ISong iSong;
+    private IArtist iArtist;
 
 
     private Domain() {
         iUser = new IUser();
         iAlbum = new IAlbum();
         iSong = new ISong();
+        iArtist = new IArtist();
     }
-
-
-
 
     public static Domain getInstance() {
         if (domain == null) {

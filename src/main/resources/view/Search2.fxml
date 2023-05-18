@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.shape.Circle?>
 
-
 <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1148.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ed.controllers.SearchController">
    <content>
       <AnchorPane prefHeight="962.0" prefWidth="1362.0" style="-fx-background-color: #181818;" stylesheets="@../styles/Styles.css">
@@ -38,12 +37,26 @@
                               <Image url="@../images/lupa.png" />
                            </image>
                         </ImageView>
-                        <TextField layoutX="30.0" prefHeight="31.0" prefWidth="256.0" promptText="¿Qué quieres escuchar?" styleClass="text-field-search" />
+                        <TextField fx:id="txtbuscar" layoutX="30.0" prefHeight="31.0" prefWidth="256.0" promptText="¿Qué quieres escuchar?" styleClass="text-field-search" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="pane-perfil">
+                     <children>
+                        <ComboBox fx:id="cmbSearchOptions" layoutX="39.0" layoutY="4.0" prefHeight="26.0" prefWidth="150.0" promptText="Busquedas" styleClass="cmbOptionsSearch" />
+                        <ImageView fitHeight="19.0" fitWidth="19.0" layoutX="14.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/search.png" />
+                           </image>
+                        </ImageView>
+                        <Circle fill="#1f93ff00" layoutX="24.0" layoutY="17.0" radius="14.0" stroke="BLACK" strokeDashOffset="5.0" strokeMiterLimit="5.0" strokeType="INSIDE" strokeWidth="5.0" />
+                     </children>
                      <HBox.margin>
-                        <Insets left="680.0" />
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="pane-perfil">
+                     <HBox.margin>
+                        <Insets left="480.0" />
                      </HBox.margin>
                      <children>
                         <ComboBox fx:id="cmbOptions" layoutX="39.0" layoutY="4.0" prefHeight="26.0" prefWidth="150.0" promptText="Opciones" styleClass="cmbOptionsSearch" />
@@ -57,7 +70,7 @@
                   </AnchorPane>
                </children>
             </HBox>
-            <AnchorPane fx:id="paneResults" layoutX="14.0" layoutY="63.0" prefHeight="887.0" prefWidth="1337.0" />
+            <AnchorPane fx:id="paneResults" layoutX="14.0" layoutY="63.0" onKeyPressed="#buscar" prefHeight="887.0" prefWidth="1337.0" />
          </children>
       </AnchorPane>
    </content>

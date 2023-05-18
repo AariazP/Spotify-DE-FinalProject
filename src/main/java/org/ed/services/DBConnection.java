@@ -3,6 +3,7 @@ package org.ed.services;
 import lombok.Getter;
 import lombok.Setter;
 import org.alejandroArias.model.HashMap;
+import org.ed.model.Artist;
 import org.ed.model.IUser;
 import org.ed.model.User;
 import org.ed.patterns.UserBuilder;
@@ -103,6 +104,18 @@ public class DBConnection {
 
     }
 
+    public void saveArtists(Artist artist){
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(DBUtilities.addArtist)) {
+
+            preparedStatement.setLong(1, artist.getId());
+            preparedStatement.setString(2, "");
+            preparedStatement.setBoolean(3, artist.getIsBand());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            updateConexion(artist);
+        }
+    }
 
     public void saveUsers(User user) {
         try (PreparedStatement preparedStatement = connection.prepareStatement(DBUtilities.addUser)) {
@@ -157,8 +170,6 @@ public class DBConnection {
         }catch (Exception e){
             e.printStackTrace();
         }
-
-
     }
 
     /**

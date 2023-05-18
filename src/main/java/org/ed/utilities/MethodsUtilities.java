@@ -114,6 +114,14 @@ public class MethodsUtilities {
         return options;
     }
 
+    public static ArrayList<String> getSearchOptions() {
+        ArrayList<String> options = new ArrayList<>();
+        options.add("Artista");
+        options.add("Coincidencia parcial");
+        options.add("Coincidencia total");
+        return options;
+    }
+
     /**
      * This method converts seconds to minutes and seconds.
      * @param seconds The seconds to convert.

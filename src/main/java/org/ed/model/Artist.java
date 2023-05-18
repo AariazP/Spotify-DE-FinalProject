@@ -3,6 +3,7 @@ package org.ed.model;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.alejandroArias.model.DoubleLinkedList;
 
 /**
  * This class represents an Artist
@@ -14,14 +15,18 @@ import lombok.ToString;
 
 @Getter
 @Setter
-public class Artist extends User{
+public class Artist extends User implements Comparable<Artist> {
 
     // This is the attribute that represents if the artist is a band or not
     private Boolean isBand;
+    private DoubleLinkedList<Song> ownSongs;
+
 
     //constructor
-    public Artist() {
+    public Artist(String name) {
         super();
+        super.setName(name);
+        ownSongs = new DoubleLinkedList<>();
     }
 
     //to string
@@ -32,5 +37,11 @@ public class Artist extends User{
         return "Artist{" + super.toString() +
                 "isBand=" + isBand +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Artist o) {
+
+        return this.getName().compareTo(o.getName());
     }
 }

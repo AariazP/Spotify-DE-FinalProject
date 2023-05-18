@@ -123,7 +123,7 @@ public class LeftBarController extends Controller {
 
     @FXML
     void play(MouseEvent event) {
-        play("file:///Users/alejandroarias/Downloads/Bad-Bunny-Un-Verano-Sin-Ti/Bad-Bunny-Efecto.mp3");
+        play("file:/C:/Users/anrum/Downloads/badBunny.mp3");
     }
 
 
