@@ -2,10 +2,12 @@ package org.ed.services;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.alejandroArias.model.BinaryTree;
 import org.alejandroArias.model.HashMap;
 import org.ed.model.Artist;
 import org.ed.model.IUser;
 import org.ed.model.User;
+import org.ed.patterns.ArtistBuilder;
 import org.ed.patterns.UserBuilder;
 import org.ed.utilities.DBUtilities;
 
@@ -109,8 +111,8 @@ public class DBConnection {
         try (PreparedStatement preparedStatement = connection.prepareStatement(DBUtilities.addArtist)) {
 
             preparedStatement.setLong(1, artist.getId());
-            preparedStatement.setString(2, "");
-            preparedStatement.setBoolean(3, artist.getIsBand());
+            //preparedStatement.setString(2, "");
+            //preparedStatement.setBoolean(3, artist.getIsBand());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             updateConexion(artist);
@@ -149,6 +151,7 @@ public class DBConnection {
 
         try{
           PreparedStatement preparedStatement = connection.prepareStatement(DBUtilities.getUsers);
+
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
@@ -161,11 +164,36 @@ public class DBConnection {
                         .nationality(rs.getString("nationality"))
                         .loadFavoritesSongs(rs.getString("favoritesSongs"))
                         .build();
-
                 users.put(user.getUserName(), user);
             }
 
             updateID(users);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void loadArtists(BinaryTree<Artist> artists) {
+
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(DBUtilities.getArtist);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                Artist artist = new ArtistBuilder()
+                        .id(rs.getLong("id"))
+                        .userName(rs.getString("username"))
+                        .password(rs.getString("password"))
+                        .email(rs.getString("email"))
+                        .name(rs.getString("name"))
+                        .nationality(rs.getString("nationality"))
+                        .build();
+                artists.add(artist);
+            }
+
+            //updateID(users);
 
         }catch (Exception e){
             e.printStackTrace();

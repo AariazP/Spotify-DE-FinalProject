@@ -29,6 +29,8 @@ public class Artist extends User implements Comparable<Artist> {
         ownSongs = new DoubleLinkedList<>();
     }
 
+    public Artist(){}
+
     //to string
 
 

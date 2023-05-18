@@ -13,6 +13,6 @@ public class VideoController extends Controller{
     @FXML
     void initialize(){
         super.setMain(MainFactory.getMain());
-        webView.getEngine().load("https://www.youtube.com/watch?v=QH2-TGUlwu4");
+        webView.getEngine().load(getSelectSong().getUrl());
     }
 }

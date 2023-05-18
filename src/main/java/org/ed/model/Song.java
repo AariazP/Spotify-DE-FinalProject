@@ -14,6 +14,7 @@ public class Song {
     private Double duration;
     private String url;
     private Gender gender;
+    private Artist autor;
 
     public Song() {}
 

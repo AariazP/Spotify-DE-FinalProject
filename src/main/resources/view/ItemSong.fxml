@@ -7,21 +7,20 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane onMouseEntered="#activateElements" onMouseExited="#desactiveElements" prefHeight="72.0" prefWidth="631.0" style="-fx-background-color: #181818; -fx-cursor: HAND;" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ed.controllers.ItemSongController">
+<AnchorPane onMouseClicked="#listenSong" onMouseEntered="#activateElements" onMouseExited="#desactiveElements" prefHeight="72.0" prefWidth="631.0" style="-fx-background-color: #181818; -fx-cursor: HAND;" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ed.controllers.ItemSongController">
    <children>
       <ImageView fitHeight="48.0" fitWidth="49.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/feid.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="104.0" layoutY="13.0" prefHeight="21.0" prefWidth="325.0" styleClass="lblNameArtist" text="Otra vez Feid jSAHSJA" />
-      <Label layoutX="103.0" layoutY="35.0" prefHeight="21.0" prefWidth="325.0" styleClass="lblArtist" text="Feid ft Feid" />
+      <Label fx:id="nombre" layoutX="104.0" layoutY="13.0" prefHeight="21.0" prefWidth="325.0" styleClass="lblNameArtist" text="Otra vez Feid jSAHSJA" />
+      <Label fx:id="artista" layoutX="103.0" layoutY="35.0" prefHeight="21.0" prefWidth="325.0" styleClass="lblArtist" text="Feid ft Feid" />
       <ImageView fx:id="imgLike" fitHeight="32.0" fitWidth="24.0" layoutX="448.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/heart-empty.png" />
          </image>
       </ImageView>
-      <Label layoutX="513.0" layoutY="20.0" prefHeight="32.0" prefWidth="36.0" styleClass="lblNameSong" text="3:30" />
       <Label fx:id="lblOptions" layoutX="587.0" layoutY="14.0" prefHeight="28.0" prefWidth="18.0" styleClass="lblHome" stylesheets="@../styles/Styles.css" text="..." visible="false">
          <contextMenu>
             <ContextMenu>

@@ -40,8 +40,7 @@ public class Domain {
 
         DBConnection dbConnection = DBConnection.getInstance();
         dbConnection.loadUsers(iUser.getUsers());
-
-
+        dbConnection.loadArtists(iArtist.getArtists());
     }
 
 

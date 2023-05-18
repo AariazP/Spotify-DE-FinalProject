@@ -32,6 +32,11 @@ public class ArtistBuilder {
         return this;
     }
 
+    public ArtistBuilder id(Long id) {
+        userBuilder.id(id);
+        return this;
+    }
+
     public ArtistBuilder password(String password) {
         userBuilder.password(password);
         return this;

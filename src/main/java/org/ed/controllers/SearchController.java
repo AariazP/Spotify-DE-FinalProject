@@ -7,6 +7,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import lombok.Getter;
 import lombok.Setter;
 import javafx.scene.control.Button;
@@ -20,6 +22,7 @@ import org.ed.utilities.MethodsUtilities;
 import org.ed.utilities.PathUtilities;
 
 import java.io.IOException;
+import java.util.Iterator;
 
 @Getter
 @Setter
@@ -36,6 +39,16 @@ public class SearchController extends Controller {
     private ComboBox<String> cmbSearchOptions;
     @FXML
     private AnchorPane paneResults;
+
+    @FXML
+    private HBox HBoxList1;
+
+    @FXML
+    private HBox HBoxList2;
+
+    @FXML
+    private HBox HBoxList3;
+
     @FXML
     private TextField txtbuscar;
 
@@ -57,7 +70,7 @@ public class SearchController extends Controller {
     }
 
     @FXML
-    void buscar(KeyEvent event) {
+    void buscar(KeyEvent event) throws Exception {
 
         String busqueda = txtbuscar.toString();
 
@@ -84,18 +97,24 @@ public class SearchController extends Controller {
     private void buscarParcial(String busqueda) {
     }
 
-    private void buscarNombre(String busqueda) {
+    private void buscarNombre(String busqueda) throws Exception {
 
         BinaryTree<Artist> arbolito = Domain.getInstance().getIArtist().getArtists();
 
         Artist artist = new Artist(busqueda);
+
         Artist art = arbolito.find(artist);
 
-        DoubleLinkedList<Song> canciones = buscarNombreArt(arbolito);
+        if(art == null){
 
+            txtbuscar.setText("No se encontro su busqueda");
+        }else{
 
-
+            setSongs(art.getOwnSongs());
+        }
     }
+
+
 
     private DoubleLinkedList<Song> buscarNombreArt(BinaryTree<Artist> arbolito) {
 
