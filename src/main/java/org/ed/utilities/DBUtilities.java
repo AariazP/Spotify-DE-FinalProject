@@ -10,10 +10,11 @@ public class DBUtilities {
 
     public static final String QUERY_DOWNLOAD_IMAGES = "SELECT * FROM images WHERE name = ?";
 
-    public static final String addUser = "INSERT INTO users(id, username, password, nationality, email) VALUES (?, ?, ?, ?, ?)";
+    public static final String addUser = "INSERT INTO users(id, username, password, nationality, email, name) VALUES (?, ?, ?, ?, ?, ?)";
 
     public static final String addArtist = "INSERT INTO users (id, id_user, isBand, ownSongs) VALUES (?, ?, ?, ?)";
 
     public static final String getUsers = "SELECT * FROM users";
     public static final String getArtist = "SELECT * FROM artists";
+    public static final String getSongs = "SELECT * FROM songs";
 }

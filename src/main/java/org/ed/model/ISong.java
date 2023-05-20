@@ -1,9 +1,13 @@
 package org.ed.model;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.alejandroArias.model.LinkedList;
 import org.ed.exceptions.CRUDException;
 import org.ed.interfaces.CRUDRepository;
 
+@Getter
+@Setter
 public class ISong implements CRUDRepository<Song> {
 
     private LinkedList<Song> songs;

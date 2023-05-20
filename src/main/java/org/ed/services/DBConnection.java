@@ -4,15 +4,21 @@ import lombok.Getter;
 import lombok.Setter;
 import org.alejandroArias.model.BinaryTree;
 import org.alejandroArias.model.HashMap;
+import org.alejandroArias.model.LinkedList;
+import org.alejandroArias.model.TreeTraversalOrder;
 import org.ed.model.Artist;
-import org.ed.model.IUser;
+import org.ed.model.Gender;
+import org.ed.model.Song;
 import org.ed.model.User;
 import org.ed.patterns.ArtistBuilder;
+import org.ed.patterns.SongBuilder;
 import org.ed.patterns.UserBuilder;
 import org.ed.utilities.DBUtilities;
 
 import java.io.*;
 import java.sql.*;
+import java.util.Iterator;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -121,17 +127,17 @@ public class DBConnection {
 
     public void saveUsers(User user) {
         try (PreparedStatement preparedStatement = connection.prepareStatement(DBUtilities.addUser)) {
-
             preparedStatement.setLong(1, user.getId());
             preparedStatement.setString(2, user.getUserName());
             preparedStatement.setString(3, user.getPassword());
-            preparedStatement.setString(4, user.getEmail());
-            preparedStatement.setString(5, user.getName());
-            preparedStatement.setString(6, user.getNationality());
-            preparedStatement.setString(7, "");
+            preparedStatement.setString(5, user.getEmail());
+            preparedStatement.setString(6, user.getName());
+            preparedStatement.setString(4, user.getNationality());
+            //preparedStatement.setString(7, "");
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             updateConexion(user);
+            e.printStackTrace();
         }
 
     }
@@ -162,39 +168,91 @@ public class DBConnection {
                         .email(rs.getString("email"))
                         .name(rs.getString("name"))
                         .nationality(rs.getString("nationality"))
-                        .loadFavoritesSongs(rs.getString("favoritesSongs"))
+                        //.loadFavoritesSongs(rs.getString("favoritesSongs"))
                         .build();
                 users.put(user.getUserName(), user);
             }
 
-            updateID(users);
+            //updateID(users);
 
         }catch (Exception e){
             e.printStackTrace();
         }
     }
 
-    public void loadArtists(BinaryTree<Artist> artists) {
+    public void loadArtists(BinaryTree<Artist> artists, HashMap<String, User> users) {
 
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(DBUtilities.getArtist);
 
             ResultSet rs = preparedStatement.executeQuery();
 
+            Long id;
+            Set<String> usuarios = users.keySet();
+
             while (rs.next()) {
+
+                id = rs.getLong("user_id");
+                Iterator<String> it = usuarios.iterator();
+                User user = null;
+                while(it.hasNext() && user == null){
+
+                    String clave = it.next();
+                    User aux = users.get(clave);
+                    if(aux.getId() == id){
+                        user = aux;
+                    }
+                }
+
                 Artist artist = new ArtistBuilder()
                         .id(rs.getLong("id"))
-                        .userName(rs.getString("username"))
-                        .password(rs.getString("password"))
-                        .email(rs.getString("email"))
-                        .name(rs.getString("name"))
-                        .nationality(rs.getString("nationality"))
+                        .userName(user.getUserName())
+                        .password(user.getPassword())
+                        .email(user.getEmail())
+                        .name(user.getName())
+                        .nationality(user.getNationality())
                         .build();
                 artists.add(artist);
             }
 
             //updateID(users);
 
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void loadSongs(LinkedList<Song> songs, BinaryTree<Artist> artists){
+
+        try{
+
+            PreparedStatement preparedStatement = connection.prepareStatement(DBUtilities.getSongs);
+
+            ResultSet rs = preparedStatement.executeQuery();
+            Long id;
+
+            while(rs.next()){
+
+                Song song = new SongBuilder()
+                        .id(rs.getLong("id"))
+                        .url(rs.getString("url"))
+                        .name(rs.getString("name"))
+                        .gender(Gender.getGender(rs.getInt("gender_id")))
+                        .build();
+                songs.add(song);
+                id = rs.getLong("artist_id");
+                boolean flag = false;
+                Iterator<Artist> it = artists.traverse(TreeTraversalOrder.IN_ORDER);
+                while(it.hasNext() && !flag){
+
+                    Artist aux = it.next();
+                    if(aux.getId() == id){
+
+                        aux.getOwnSongs().add(song);
+                        flag = true;
+                    }
+                }
+            }
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -212,6 +270,6 @@ public class DBConnection {
                 id = users.get(key).getId();
             }
         }
-        User.setId(++id);
+        //User.setId(id);
     }
 }

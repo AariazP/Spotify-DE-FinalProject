@@ -19,7 +19,7 @@ public class Artist extends User implements Comparable<Artist> {
 
     // This is the attribute that represents if the artist is a band or not
     private Boolean isBand;
-    private DoubleLinkedList<Song> ownSongs;
+    private DoubleLinkedList<Song> ownSongs = new DoubleLinkedList<>();
 
 
     //constructor

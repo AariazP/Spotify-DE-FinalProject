@@ -68,7 +68,10 @@ public class User {
      * This method set the id of the user.
      * @param id The id to set.
      */
+    /**
     public static void setId(Long id) {
         auxId = ++id;
     }
+     **/
+
 }

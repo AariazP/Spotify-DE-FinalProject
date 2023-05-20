@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.alejandroArias.model.DoubleLinkedList;
 import org.ed.application.Main;
 import org.ed.model.Song;
+import org.ed.patterns.DataFactory;
 
 @Setter
 @Getter
@@ -12,7 +13,6 @@ public abstract class Controller {
 
     private Main main;
 
-    private DoubleLinkedList<Song> songs;
+    private DataFactory data;
 
-    private Song selectSong;
 }

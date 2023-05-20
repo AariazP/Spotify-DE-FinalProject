@@ -32,7 +32,7 @@
                         <Insets left="50.0" top="3.0" />
                      </HBox.margin>
                      <children>
-                        <ImageView fitHeight="21.0" fitWidth="27.0" layoutX="10.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="21.0" fitWidth="27.0" layoutX="10.0" layoutY="8.0" onMouseClicked="#buscar" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/lupa.png" />
                            </image>
@@ -70,7 +70,7 @@
                   </AnchorPane>
                </children>
             </HBox>
-            <AnchorPane fx:id="paneResults" layoutX="14.0" layoutY="63.0" onKeyPressed="#buscar" prefHeight="887.0" prefWidth="1337.0" />
+            <AnchorPane fx:id="paneResults" layoutX="14.0" layoutY="63.0" prefHeight="887.0" prefWidth="1337.0" />
          </children>
       </AnchorPane>
    </content>

@@ -40,7 +40,8 @@ public class Domain {
 
         DBConnection dbConnection = DBConnection.getInstance();
         dbConnection.loadUsers(iUser.getUsers());
-        dbConnection.loadArtists(iArtist.getArtists());
+        dbConnection.loadArtists(iArtist.getArtists(), iUser.getUsers());
+        dbConnection.loadSongs(iSong.getSongs(), iArtist.getArtists());
     }
 
 
@@ -64,6 +65,8 @@ public class Domain {
         try {
             iUser.create(user);
         } catch (CRUDException e) {
+
+            System.out.println("Hola");
             throw new RuntimeException(e);
         }
     }

@@ -5,6 +5,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import org.ed.model.Song;
+import org.ed.patterns.DataFactory;
+import org.ed.patterns.MainFactory;
 import org.ed.utilities.PathUtilities;
 
 import java.io.IOException;
@@ -27,9 +29,12 @@ public class ItemSongController extends Controller {
     @FXML
     public void initialize() throws IOException {
 
-        own = getSelectSong();
+        super.setMain(MainFactory.getMain());
+        super.setData(DataFactory.getInsatance());
+
+        own = getData().getSelectedSong();
         nombre.setText(own.getName());
-        artista.setText(own.getAutor().getName());
+        //artista.setText(own.getAutor().getName());
     }
 
     @FXML
@@ -51,7 +56,7 @@ public class ItemSongController extends Controller {
     @FXML
     void listenSong(MouseEvent event) {
 
-        setSelectSong(own);
+        getData().setSelectedSong(own);
         getMain().loadStage(PathUtilities.VIDEOVIEW);
     }
 

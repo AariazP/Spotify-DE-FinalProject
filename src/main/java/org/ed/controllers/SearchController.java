@@ -6,6 +6,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -17,6 +18,7 @@ import org.alejandroArias.model.DoubleLinkedList;
 import org.ed.model.Artist;
 import org.ed.model.Domain;
 import org.ed.model.Song;
+import org.ed.patterns.DataFactory;
 import org.ed.patterns.MainFactory;
 import org.ed.utilities.MethodsUtilities;
 import org.ed.utilities.PathUtilities;
@@ -55,40 +57,44 @@ public class SearchController extends Controller {
     @FXML
     public void initialize() {
         super.setMain(MainFactory.getMain());
+        super.setData(DataFactory.getInsatance());
         try {
             MethodsUtilities.getOptions().forEach(option -> cmbOptions.getItems().add(option));
             MethodsUtilities.getSearchOptions().forEach(option -> cmbSearchOptions.getItems().add(option));
 
             //cargo el panel de resultados
-            FXMLLoader fxml = getMain().loadFXML(PathUtilities.SEARCHITEMS);
-            AnchorPane paneAux = fxml.load();
-            paneResults.getChildren().add(paneAux);
+            cargarPane();
 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
+
+    public void cargarPane() throws IOException {
+
+        FXMLLoader fxml = getMain().loadFXML(PathUtilities.SEARCHITEMS);
+        AnchorPane paneAux = fxml.load();
+        paneResults.getChildren().add(paneAux);
+    }
     @FXML
-    void buscar(KeyEvent event) throws Exception {
+    void buscar(MouseEvent event) throws Exception {
 
-        String busqueda = txtbuscar.toString();
+        String busqueda = txtbuscar.getText();
+        String tipo = cmbSearchOptions.getValue();
 
-        if(event.getCode().equals(KeyCode.ENTER)){
-            if(busqueda != null || busqueda != " "){
-                switch (cmbSearchOptions.getSelectionModel().getSelectedItem()){
+            if(busqueda != null || busqueda != " " || tipo != null){
 
-                    case "Artista":  buscarNombre(busqueda);
-                    break;
-                    case "Coincidencia parcial": buscarParcial(busqueda);
-                    break;
-                    case "Coincidencia total": buscarTotal(busqueda);
-                    break;
-                    default: cmbSearchOptions.setPromptText("Escoja una opcion");
-
+                if(tipo == "Artista"){
+                    buscarNombre(busqueda);
+                } else if (tipo == "Coincidencia parcial") {
+                    buscarParcial(busqueda);
+                } else if (tipo == "Coincidencia total") {
+                    buscarTotal(busqueda);
+                }else{
+                    cmbSearchOptions.setPromptText("Escoja una opcion");
                 }
             }
-        }
     }
 
     private void buscarTotal(String busqueda) {
@@ -105,12 +111,15 @@ public class SearchController extends Controller {
 
         Artist art = arbolito.find(artist);
 
+
         if(art == null){
 
             txtbuscar.setText("No se encontro su busqueda");
         }else{
 
-            setSongs(art.getOwnSongs());
+            getData().setSongs(art.getOwnSongs());
+            cargarPane();
+
         }
     }
 
