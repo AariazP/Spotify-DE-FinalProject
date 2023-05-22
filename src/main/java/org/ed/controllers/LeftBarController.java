@@ -15,6 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
+import org.ed.patterns.DataFactory;
 import org.ed.patterns.MainFactory;
 import org.ed.utilities.MethodsUtilities;
 import org.ed.utilities.PathUtilities;
@@ -230,6 +231,7 @@ public class LeftBarController extends Controller {
     @FXML
     void initialize() throws IOException {
         super.setMain(MainFactory.getMain());
+        super.setData(DataFactory.getInsatance());
         loadHomeFXML();
         loadPlaylist();
     }

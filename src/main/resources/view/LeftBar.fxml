@@ -13,9 +13,9 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="526.0" prefWidth="1022.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ed.controllers.LeftBarController">
    <left>
-      <ScrollPane prefHeight="961.0" prefWidth="363.0" BorderPane.alignment="CENTER">
+      <ScrollPane hbarPolicy="NEVER" prefHeight="961.0" prefWidth="363.0" vbarPolicy="NEVER" BorderPane.alignment="CENTER">
          <content>
-            <VBox prefHeight="1004.0" prefWidth="355.0" styleClass="LeftVbox" stylesheets="@../styles/Styles.css">
+            <VBox prefHeight="1005.0" prefWidth="361.0" styleClass="LeftVbox" stylesheets="@../styles/Styles.css">
                <children>
                   <Label onMouseClicked="#loadHome" prefHeight="55.0" prefWidth="355.0" styleClass="leftBarIcon" text="Inicio">
                      <graphic>
@@ -99,7 +99,7 @@
                         <Insets left="10.0" top="25.0" />
                      </VBox.margin>
                      <content>
-                        <VBox fx:id="VBoxPlaylist" prefHeight="501.0" prefWidth="343.0" style="-fx-background-color: #000000;" />
+                        <VBox fx:id="VBoxPlaylist" prefHeight="501.0" prefWidth="355.0" style="-fx-background-color: #000000;" />
                      </content>
                   </ScrollPane>
                </children>
@@ -108,9 +108,9 @@
       </ScrollPane>
    </left>
    <bottom>
-      <ScrollPane prefHeight="106.0" prefWidth="1022.0" BorderPane.alignment="CENTER">
+      <ScrollPane hbarPolicy="NEVER" prefHeight="106.0" prefWidth="1022.0" vbarPolicy="NEVER" BorderPane.alignment="CENTER">
          <content>
-            <HBox prefHeight="93.0" prefWidth="1700.0" styleClass="downBar">
+            <HBox prefHeight="103.0" prefWidth="1700.0" styleClass="downBar">
                <children>
                   <ImageView fx:id="imgSong" fitHeight="75.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
                      <HBox.margin>
@@ -253,6 +253,6 @@
       </ScrollPane>
    </bottom>
    <center>
-      <ScrollPane fx:id="paneCenter" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <ScrollPane fx:id="paneCenter" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" vbarPolicy="NEVER" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

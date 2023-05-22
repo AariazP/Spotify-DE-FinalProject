@@ -71,12 +71,13 @@ public class SearchController extends Controller {
     }
 
 
-    public void cargarPane() throws IOException {
+    private void cargarPane() throws IOException {
 
         FXMLLoader fxml = getMain().loadFXML(PathUtilities.SEARCHITEMS);
         AnchorPane paneAux = fxml.load();
         paneResults.getChildren().add(paneAux);
     }
+
     @FXML
     void buscar(MouseEvent event) throws Exception {
 
@@ -119,17 +120,19 @@ public class SearchController extends Controller {
 
             getData().setSongs(art.getOwnSongs());
             cargarPane();
-
         }
     }
 
+    @FXML
+    void ejecutarOp(MouseEvent event) {
+
+        String opcion = cmbOptions.getValue();
+
+        if(opcion == "Cerrar sesión" && opcion != null){
 
 
-    private DoubleLinkedList<Song> buscarNombreArt(BinaryTree<Artist> arbolito) {
-
-        return null;
-
-
+            getMain().loadStage(PathUtilities.LOGIN);
+        }
     }
 
 

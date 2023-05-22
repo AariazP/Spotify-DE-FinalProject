@@ -249,6 +249,7 @@ public class DBConnection {
                     if(aux.getId() == id){
 
                         aux.getOwnSongs().add(song);
+                        song.setAutor(aux);
                         flag = true;
                     }
                 }

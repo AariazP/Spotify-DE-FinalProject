@@ -1,13 +1,17 @@
 package org.ed.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.input.ContextMenuEvent;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import lombok.Getter;
 import lombok.Setter;
+import org.ed.patterns.DataFactory;
 import org.ed.patterns.MainFactory;
 import org.ed.utilities.MethodsUtilities;
 import org.ed.utilities.PathUtilities;
@@ -40,11 +44,11 @@ public class HomeController extends Controller {
     void initialize() throws Exception {
 
         super.setMain(MainFactory.getMain());
+        super.setData(DataFactory.getInsatance());
         MethodsUtilities.getOptions().forEach(option -> cmbOptions.getItems().add(option));
         cmbOptions.setOnAction(event -> loadSettings());
         loadRecommendations();
         loadRecentlyListen();
-
     }
 
     private void loadRecentlyListen() throws IOException {
@@ -78,13 +82,6 @@ public class HomeController extends Controller {
 
     }
 
-    @FXML
-    void salir(MouseEvent event) {
-
-
-        getMain().loadStage(PathUtilities.LOGIN);
-    }
-
     private void loadSettings() {
         switch (cmbOptions.getSelectionModel().getSelectedIndex()) {
            /* case 0 -> loadRecommendations();
@@ -94,5 +91,16 @@ public class HomeController extends Controller {
         }
     }
 
+    @FXML
+    void ejecutarOp(MouseEvent event) {
+
+        String opcion = cmbOptions.getValue();
+
+        if(opcion == "Cerrar sesión" && opcion != null){
+
+
+            getMain().loadStage(PathUtilities.LOGIN);
+        }
+    }
 
 }

@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="887.0" prefWidth="1337.0" style="-fx-background-color: #181818;" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ed.controllers.SearchSongsController">
+<AnchorPane prefHeight="887.0" prefWidth="1337.0" style="-fx-background-color: #181818;" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ed.controllers.SearchSongsController">
    <children>
       <VBox layoutX="8.0" layoutY="17.0" prefHeight="864.0" prefWidth="1313.0">
          <children>
@@ -27,9 +27,9 @@
                                     <Image url="@../images/feid.jpg" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="38.0" layoutY="62.0" prefHeight="75.0" prefWidth="217.0" styleClass="lblSongRecommend" text="Feid" />
-                              <Label layoutX="34.0" layoutY="200.0" prefHeight="38.0" prefWidth="218.0" styleClass="lblHome" text="Feid ft Feid" />
-                              <AnchorPane layoutX="187.0" layoutY="201.0" prefHeight="47.0" prefWidth="160.0" style="-fx-background-color: #101010; -fx-border-radius: 40; -fx-background-radius: 40;">
+                              <Label fx:id="artNom" layoutX="38.0" layoutY="62.0" prefHeight="75.0" prefWidth="217.0" styleClass="lblSongRecommend" text="Feid" />
+                              <Label fx:id="songNom" layoutX="34.0" layoutY="200.0" prefHeight="38.0" prefWidth="218.0" styleClass="lblHome" text="Feid ft Feid" />
+                              <AnchorPane layoutX="208.0" layoutY="185.0" prefHeight="47.0" prefWidth="160.0" style="-fx-background-color: #101010; -fx-border-radius: 40; -fx-background-radius: 40;">
                                  <children>
                                     <Label layoutX="42.0" layoutY="12.0" text="Canción" textFill="WHITE">
                                        <font>
@@ -38,7 +38,7 @@
                                     </Label>
                                  </children>
                               </AnchorPane>
-                              <ImageView fitHeight="85.0" fitWidth="93.0" layoutX="389.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="85.0" fitWidth="93.0" layoutX="389.0" layoutY="166.0" onMouseClicked="#listenSong" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../images/pauseRecommend.png" />
                                  </image>
