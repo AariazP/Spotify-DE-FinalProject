@@ -101,9 +101,9 @@ public class SearchController extends Controller {
             }
     }
 
-    private void buscarTotal(String busqueda) throws IOException {
+    private void buscarTotal(String busqueda) throws IOException, InterruptedException {
 
-        /**
+
         BinaryTree<Artist> arbolito = Domain.getInstance().getIArtist().getArtists();
 
         BinaryTree<Artist> arbolitoDer = new BinaryTree<>(arbolito.rootNode().getRight());
@@ -114,6 +114,9 @@ public class SearchController extends Controller {
         threadDer.start();
         threadIz.start();
 
+        threadIz.join();
+        threadDer.join();
+
         DoubleLinkedList<Song> songs = threadIz.songs.merge(threadDer.songs);
 
         if(!songs.isEmpty()){
@@ -122,10 +125,9 @@ public class SearchController extends Controller {
             cargarPane();
         }else{
 
-            txtbuscar.setText("No se encontro su busqueda");
+            txtbuscar.setText("No se encontro su búsqueda");
         }
 
-        **/
     }
 
     private void buscarParcial(String busqueda) throws IOException, InterruptedException {
@@ -152,7 +154,7 @@ public class SearchController extends Controller {
             cargarPane();
         }else{
 
-            txtbuscar.setText("No se encontro su busqueda");
+            txtbuscar.setText("No se encontro su búsqueda");
         }
     }
 
@@ -167,7 +169,7 @@ public class SearchController extends Controller {
 
         if(art == null){
 
-            txtbuscar.setText("No se encontro su busqueda");
+            txtbuscar.setText("No se encontro su búsqueda");
         }else{
 
             getData().setSongs(art.getOwnSongs());
@@ -214,7 +216,11 @@ public class SearchController extends Controller {
         @Override
         public void run(){
 
-            songs = buscarParcial(busqueda, artists, songs);
+            if(esCompleta){
+                songs = buscarCompleta(busqueda, artists, songs);
+            }else songs = buscarParcial(busqueda, artists, songs);
+
+
         }
 
         private DoubleLinkedList<Song> buscarParcial(String[] busqueda, BinaryTree<Artist> artists, DoubleLinkedList<Song> songs){
@@ -233,13 +239,13 @@ public class SearchController extends Controller {
 
                 for(int i = 0; i < busqueda.length; i++){
 
-                    if(i == 0){
+
                         if(busqueda[i].equalsIgnoreCase(aux.getName()))songs.add(aux);
-                    } else if (i == 1) {
+
                         if(busqueda[i].equalsIgnoreCase(aux.getAutor().getName()))songs.add(aux);
-                    }else{
+
                         if(busqueda[i].equalsIgnoreCase(aux.getGender().toString()))songs.add(aux);
-                    }
+
                 }
             }
 
@@ -259,7 +265,7 @@ public class SearchController extends Controller {
             return songs;
         }
 
-        /**
+
         private DoubleLinkedList<Song> buscarCompleta(String[] busqueda, BinaryTree<Artist> artists, DoubleLinkedList<Song> songs){
 
             if(artists.rootNode() == null){
@@ -305,6 +311,6 @@ public class SearchController extends Controller {
 
             return songs;
         }
-         **/
+
     }
 }
