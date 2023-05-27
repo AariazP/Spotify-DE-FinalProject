@@ -7,6 +7,7 @@ import org.ed.exceptions.CRUDException;
 import org.ed.services.DBConnection;
 import org.ed.utilities.DBUtilities;
 import org.ed.utilities.MethodsUtilities;
+import org.ed.utilities.PathUtilities;
 
 @ToString
 @Setter
@@ -42,6 +43,7 @@ public class Domain {
         dbConnection.loadUsers(iUser.getUsers());
         dbConnection.loadArtists(iArtist.getArtists(), iUser.getUsers());
         dbConnection.loadSongs(iSong.getSongs(), iArtist.getArtists());
+        dbConnection.loadFavs(iUser.getUsers(), iSong.getSongs());
     }
 
 
@@ -66,9 +68,13 @@ public class Domain {
             iUser.create(user);
         } catch (CRUDException e) {
 
-            System.out.println("Hola");
             throw new RuntimeException(e);
         }
+    }
+
+    public void makeRelation(Long userId, Long songId){
+
+        DBConnection.getInstance().makeRelation(userId, songId);
     }
 
     public Song getSong(String id) {
@@ -92,8 +98,8 @@ public class Domain {
 
     public boolean isUserLogged() {
         try {
-            User user1 = iUser.read(MethodsUtilities.getUserLogged());
-            return user1.getPassword().equals(MethodsUtilities.getPasswordLogged());
+            User user1 = iUser.read(MethodsUtilities.getUserLogged(PathUtilities.USER_FILE_SAVED));
+            return user1.getPassword().equals(MethodsUtilities.getPasswordLogged(PathUtilities.USER_FILE_SAVED));
         } catch (CRUDException e) {
             return false;
         }

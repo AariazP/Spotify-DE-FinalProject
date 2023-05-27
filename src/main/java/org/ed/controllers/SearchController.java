@@ -4,12 +4,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import lombok.Getter;
 import lombok.Setter;
 import javafx.scene.control.Button;
@@ -59,7 +56,7 @@ public class SearchController extends Controller {
     @FXML
     public void initialize() {
         super.setMain(MainFactory.getMain());
-        super.setData(DataFactory.getInsatance());
+        super.setData(DataFactory.getInstance());
         songss = new DoubleLinkedList<>();
         try {
             MethodsUtilities.getOptions().forEach(option -> cmbOptions.getItems().add(option));
@@ -311,6 +308,5 @@ public class SearchController extends Controller {
 
             return songs;
         }
-
     }
 }

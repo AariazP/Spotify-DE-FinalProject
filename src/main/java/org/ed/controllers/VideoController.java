@@ -14,7 +14,7 @@ public class VideoController extends Controller{
     @FXML
     void initialize(){
         super.setMain(MainFactory.getMain());
-        super.setData(DataFactory.getInsatance());
+        super.setData(DataFactory.getInstance());
         webView.getEngine().load(getData().getSelectedSong().getUrl());
     }
 }

@@ -9,12 +9,9 @@ import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.util.Duration;
 import org.ed.patterns.DataFactory;
 import org.ed.patterns.MainFactory;
 import org.ed.utilities.MethodsUtilities;
@@ -61,6 +58,7 @@ public class LeftBarController extends Controller {
     private ScrollPane paneCenter;
     private ScrollPane paneHome;
     private ScrollPane paneSearch;
+    private ScrollPane paneLibrary;
     @FXML
     private ImageView imgPlay;
 
@@ -91,8 +89,23 @@ public class LeftBarController extends Controller {
     }
 
     @FXML
-    void loadLibrary(MouseEvent event) {
+    void loadLibrary(MouseEvent event) throws IOException {
+        // Si no se ha cargado
+        loadLibraryFXML();
 
+    }
+
+    private void loadLibraryFXML() throws IOException {
+        FXMLLoader loader = getMain().loadFXML(PathUtilities.LIBRARY);
+        paneLibrary = loader.load();
+        paneLibrary = getMain().loadFXML(PathUtilities.LIBRARY).load();
+        LibraryController libController = loader.getController();
+        libController.setLeftBarController(this);
+        paneCenter.setContent(paneLibrary);
+        //paneCenter.getChildren().clear();
+        //paneCenter.getChildren().add(paneHome);
+        libController.setLeftBarController(this);
+        paneCenter.setContent(paneLibrary);
     }
 
     @FXML
@@ -110,7 +123,6 @@ public class LeftBarController extends Controller {
             //paneCenter.getChildren().add(paneSearch);
         }
     }
-
 
     @FXML
     void mute(MouseEvent event) {
@@ -139,7 +151,6 @@ public class LeftBarController extends Controller {
         mediaPlayer.currentTimeProperty().addListener((observableValue, duration, current) -> {
             lblInstant.setText(MethodsUtilities.convertToMinutesSeconds(current.toSeconds())); // actualiza el label con el tiempo actual de la canción
         });
-
 
         if (mediaPlayer.getStatus() != MediaPlayer.Status.PLAYING) {
 
@@ -231,7 +242,7 @@ public class LeftBarController extends Controller {
     @FXML
     void initialize() throws IOException {
         super.setMain(MainFactory.getMain());
-        super.setData(DataFactory.getInsatance());
+        super.setData(DataFactory.getInstance());
         loadHomeFXML();
         loadPlaylist();
     }

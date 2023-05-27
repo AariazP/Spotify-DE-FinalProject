@@ -37,8 +37,9 @@ public class LoginController extends Controller{
 
         if(Domain.getInstance().login(txtEmailUser.getText(), txtPassword.getText())){
             if(rememberUser.isSelected()){
-                MethodsUtilities.saveUser(txtEmailUser.getText(), txtPassword.getText());
+                MethodsUtilities.saveUser(txtEmailUser.getText(), txtPassword.getText(), PathUtilities.USER_FILE_SAVED);
             }
+            MethodsUtilities.saveUser(txtEmailUser.getText(), txtPassword.getText(), PathUtilities.USER_FILE_LOGGED);
             getMain().loadStage(PathUtilities.LEFT_BAR);
         } else {
             lblFaliedSesion.setVisible(true);

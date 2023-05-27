@@ -5,16 +5,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import org.alejandroArias.model.BinaryTree;
-import org.alejandroArias.model.TreeTraversalOrder;
 import org.ed.model.Domain;
 import org.ed.patterns.MainFactory;
 import org.ed.services.DBConnection;
 import org.ed.utilities.PathUtilities;
 import org.ed.utilities.ViewUtilities;
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.Objects;
 
 
@@ -28,8 +24,6 @@ public class Main extends Application {
         DBConnection.getInstance();
         Domain.getInstance();
         launch();
-
-
     }
 
 
@@ -43,7 +37,6 @@ public class Main extends Application {
         } else {
             loadStage(PathUtilities.LOGIN);
         }
-
     }
 
     /**

@@ -64,9 +64,9 @@ public class MethodsUtilities {
      * @param user The user to save.
      * @param password The password of the user.
      */
-    public static void saveUser(String user, String password) {
+    public static void saveUser(String user, String password, String file) {
         try {
-            FileWriter fw = new FileWriter(PathUtilities.USER_FILE_LOGGED);
+            FileWriter fw = new FileWriter(file);
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(user + " " + hashPassword(password));
             bw.close();
@@ -78,18 +78,18 @@ public class MethodsUtilities {
 
     }
 
-    public static String getUserLogged() {
-        return Objects.requireNonNull(loadUserLogged()).split(" ")[0];
+    public static String getUserLogged(String file) {
+        return Objects.requireNonNull(loadUserLogged(file)).split(" ")[0];
     }
 
-    public static String getPasswordLogged() {
-        return Objects.requireNonNull(loadUserLogged()).split(" ")[1];
+    public static String getPasswordLogged(String file) {
+        return Objects.requireNonNull(loadUserLogged(file)).split(" ")[1];
     }
 
 
-    public static String loadUserLogged() {
+    public static String loadUserLogged(String file) {
         try {
-            FileReader fr = new FileReader(PathUtilities.USER_FILE_LOGGED);
+            FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             String line = br.readLine();
             if(line != null && !line.equals("")){

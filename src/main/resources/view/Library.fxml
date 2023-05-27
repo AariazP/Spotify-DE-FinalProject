@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="637.0" prefWidth="917.0" stylesheets="@../styles/Styles.css" vbarPolicy="NEVER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ed.controllers.LibraryController">
+   <content>
+      <AnchorPane prefHeight="635.0" prefWidth="852.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#252525" height="639.0" layoutX="-3.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="919.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="642.0" layoutY="-3.0" stroke="TRANSPARENT" strokeType="INSIDE" width="918.0">
+               <fill>
+                  <LinearGradient endX="0.9022082500277258" endY="0.5268138665882195" startX="0.8927444809994862">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.09019608050584793" green="0.40784314274787903" blue="0.12156862765550613" opacity="0.5899999737739563" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.14509804546833038" green="0.14509804546833038" blue="0.14509804546833038" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Label layoutX="88.0" layoutY="47.0" text="Tu biblioteca" textFill="WHITE">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <ScrollPane hbarPolicy="NEVER" layoutX="26.0" layoutY="98.0" prefHeight="485.0" prefWidth="861.0" styleClass="scrollPaneSongs" vbarPolicy="NEVER">
+               <content>
+                  <VBox fx:id="vBoxSongs" prefHeight="505.0" prefWidth="843.0" />
+               </content>
+            </ScrollPane>
+            <ImageView fitHeight="55.0" fitWidth="49.0" layoutX="24.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/library.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>

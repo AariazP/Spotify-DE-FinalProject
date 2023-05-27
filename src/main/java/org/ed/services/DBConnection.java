@@ -117,8 +117,6 @@ public class DBConnection {
         try (PreparedStatement preparedStatement = connection.prepareStatement(DBUtilities.addArtist)) {
 
             preparedStatement.setLong(1, artist.getId());
-            //preparedStatement.setString(2, "");
-            //preparedStatement.setBoolean(3, artist.getIsBand());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             updateConexion(artist);
@@ -133,13 +131,11 @@ public class DBConnection {
             preparedStatement.setString(5, user.getEmail());
             preparedStatement.setString(6, user.getName());
             preparedStatement.setString(4, user.getNationality());
-            //preparedStatement.setString(7, "");
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             updateConexion(user);
             e.printStackTrace();
         }
-
     }
 
     private void updateConexion(User user) {
@@ -178,6 +174,19 @@ public class DBConnection {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public void makeRelation(Long userId, Long songId){
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(DBUtilities.addRelation)) {
+            preparedStatement.setLong(1, userId);
+            preparedStatement.setLong(2, songId);
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+
     }
 
     public void loadArtists(BinaryTree<Artist> artists, HashMap<String, User> users) {
@@ -259,6 +268,47 @@ public class DBConnection {
         }
     }
 
+    public void loadFavs(HashMap<String, User> users, LinkedList<Song> songs) {
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(DBUtilities.getFavs);
+
+            ResultSet rs = preparedStatement.executeQuery();
+            Long idUser;
+            Long idSong;
+            Set<String> usuarios = users.keySet();
+
+            while(rs.next()){
+
+                idUser = rs.getLong("user_id");
+                idSong = rs.getLong("song_id");
+
+                Iterator<Song> itSong = songs.iterator();
+                Iterator<String> itUser = usuarios.iterator();
+
+                User user = null;
+                while(itUser.hasNext() && user == null){
+
+                    String clave = itUser.next();
+                    User aux = users.get(clave);
+                    if(aux.getId() == idUser){
+                        user = aux;
+                    }
+                }
+
+                while(itSong.hasNext()){
+
+                    Song aux = itSong.next();
+                    if(idSong == aux.getId()){
+
+                        user.getSongs().add(aux);
+                    }
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     /**
      * This method find the biggest id in the database and set the id to user
      * @param users
@@ -273,4 +323,6 @@ public class DBConnection {
         }
         //User.setId(id);
     }
+
+
 }

@@ -20,15 +20,25 @@
                   <AnchorPane prefHeight="345.0" prefWidth="550.0">
                      <children>
                         <Label layoutX="14.0" layoutY="7.0" styleClass="lblHome" stylesheets="@../styles/Styles.css" text="Resultado más relevante" textFill="WHITE" />
-                        <AnchorPane layoutX="16.0" layoutY="49.0" prefHeight="270.0" prefWidth="506.0" style="-fx-background-color: #252525; -fx-background-radius: 20;">
+                        <AnchorPane layoutX="16.0" layoutY="49.0" onMouseEntered="#activateElements" onMouseExited="#desactiveElements" prefHeight="270.0" prefWidth="506.0" style="-fx-background-color: #252525; -fx-background-radius: 20;">
                            <children>
                               <ImageView fitHeight="109.0" fitWidth="167.0" layoutX="290.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../images/feid.jpg" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="artNom" layoutX="38.0" layoutY="62.0" prefHeight="75.0" prefWidth="217.0" styleClass="lblSongRecommend" text="Feid" />
-                              <Label fx:id="songNom" layoutX="34.0" layoutY="200.0" prefHeight="38.0" prefWidth="218.0" styleClass="lblHome" text="Feid ft Feid" />
+                              <ImageView fx:id="imgLike" fitHeight="36.0" fitWidth="33.0" layoutX="420.0" layoutY="71.0" onMouseClicked="#likeSong" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../images/heart-empty.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="imgLiked" fitHeight="36.0" fitWidth="33.0" layoutX="420.0" layoutY="71.0" onMouseClicked="#likeSong" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../images/heart-filled.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="artNom" layoutX="38.0" layoutY="62.0" prefHeight="75.0" prefWidth="217.0" styleClass="lblSongRecommend" text="???" />
+                              <Label fx:id="songNom" layoutX="34.0" layoutY="200.0" prefHeight="38.0" prefWidth="218.0" styleClass="lblHome" text="???" />
                               <AnchorPane layoutX="208.0" layoutY="185.0" prefHeight="47.0" prefWidth="160.0" style="-fx-background-color: #101010; -fx-border-radius: 40; -fx-background-radius: 40;">
                                  <children>
                                     <Label layoutX="42.0" layoutY="12.0" text="Canción" textFill="WHITE">
@@ -73,12 +83,12 @@
             </HBox>
             <HBox prefHeight="61.0" prefWidth="1313.0">
                <children>
-                  <Label prefHeight="112.0" prefWidth="348.0" styleClass="lblHome" text="Videos">
+                  <Label prefHeight="112.0" prefWidth="348.0" styleClass="lblHome" text=" ">
                      <HBox.margin>
                         <Insets left="30.0" />
                      </HBox.margin>
                   </Label>
-                  <Label prefHeight="60.0" prefWidth="279.0" styleClass="lblHome" text="Podcast">
+                  <Label prefHeight="60.0" prefWidth="279.0" styleClass="lblHome" text=" ">
                      <HBox.margin>
                         <Insets left="240.0" />
                      </HBox.margin>

@@ -3,8 +3,8 @@ package org.ed.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.image.ImageView;
 import org.alejandroArias.model.DoubleLinkedList;
 import org.ed.model.Song;
 import org.ed.patterns.DataFactory;
@@ -31,10 +31,16 @@ public class SearchSongsController extends Controller{
     private Song ownSong;
 
     @FXML
+    private ImageView imgLike;
+
+    @FXML
+    private ImageView imgLiked;
+
+    @FXML
     public void initialize() throws IOException {
 
         super.setMain(MainFactory.getMain());
-        super.setData(DataFactory.getInsatance());
+        super.setData(DataFactory.getInstance());
 
         inicializarDatos();
 
@@ -69,7 +75,6 @@ public class SearchSongsController extends Controller{
                 songNom.setText(ownSong.getName());
                 flag = true;
             }
-
         }
     }
 
@@ -78,6 +83,34 @@ public class SearchSongsController extends Controller{
 
         getData().setSelectedSong(ownSong);
         getMain().loadStage(PathUtilities.VIDEOVIEW);
+    }
+
+    @FXML
+    void activateElements(MouseEvent event) {
+
+        if(getData().getFavSongs().contains(ownSong)){
+
+            imgLiked.setVisible(true);
+        }else {
+            imgLike.setVisible(true);
+        }
+    }
+
+    @FXML
+    void desactiveElements(MouseEvent event) {
+
+        imgLike.setVisible(false);
+        imgLiked.setVisible(false);
+    }
+
+    @FXML
+    void likeSong(MouseEvent event) {
+
+        if(ownSong != null){
+
+            if(!getData().getSongs().contains(ownSong))getData().setFavSongs(ownSong);
+            else getData().getSongs().remove(ownSong);
+        }
     }
 
 }

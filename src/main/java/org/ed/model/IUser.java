@@ -34,8 +34,6 @@ public class IUser implements CRUDRepository<User> {
 
         users.put(user.getUserName(), user);
         DBConnection.getInstance().saveUsers(user);
-
-
     }
 
     @Override

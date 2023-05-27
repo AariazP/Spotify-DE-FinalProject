@@ -1,10 +1,7 @@
 package org.ed.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
-import javafx.scene.input.ContextMenuEvent;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -44,7 +41,7 @@ public class HomeController extends Controller {
     void initialize() throws Exception {
 
         super.setMain(MainFactory.getMain());
-        super.setData(DataFactory.getInsatance());
+        super.setData(DataFactory.getInstance());
         MethodsUtilities.getOptions().forEach(option -> cmbOptions.getItems().add(option));
         cmbOptions.setOnAction(event -> loadSettings());
         loadRecommendations();
