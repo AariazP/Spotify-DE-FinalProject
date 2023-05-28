@@ -149,6 +149,17 @@ public class DBConnection {
         }
     }
 
+    private void updateConexion() {
+        try {
+            if (connection == null || connection.isClosed()) {
+                connection = DriverManager.getConnection(DBUtilities.URL, DBUtilities.USER, DBUtilities.PASSWORD);
+
+            }
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+    }
+
     public void loadUsers(HashMap<String, User> users) {
 
         try{
@@ -182,11 +193,24 @@ public class DBConnection {
             preparedStatement.setLong(1, userId);
             preparedStatement.setLong(2, songId);
             preparedStatement.executeUpdate();
-        } catch (Exception e) {
+        } catch (SQLException e) {
 
+            updateConexion();
             e.printStackTrace();
         }
+    }
 
+    public void deleteRelation(Long userId, Long songId){
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(DBUtilities.deleteRelation)) {
+            preparedStatement.setLong(1, userId);
+            preparedStatement.setLong(2, songId);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+
+            updateConexion();
+            e.printStackTrace();
+        }
     }
 
     public void loadArtists(BinaryTree<Artist> artists, HashMap<String, User> users) {

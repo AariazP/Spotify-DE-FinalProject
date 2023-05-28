@@ -21,7 +21,7 @@
             <Image url="@../images/heart-empty.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgLiked" fitHeight="32.0" fitWidth="24.0" layoutX="448.0" layoutY="25.0" onMouseClicked="#likeSong" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="imgLiked" fitHeight="32.0" fitWidth="24.0" layoutX="458.0" layoutY="25.0" onMouseClicked="#likeSong" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../images/heart-filled.png" />
          </image>

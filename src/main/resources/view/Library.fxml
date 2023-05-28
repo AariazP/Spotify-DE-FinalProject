@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
@@ -40,9 +41,9 @@
                   <Font size="23.0" />
                </font>
             </Label>
-            <ScrollPane hbarPolicy="NEVER" layoutX="26.0" layoutY="98.0" prefHeight="485.0" prefWidth="861.0" styleClass="scrollPaneSongs" vbarPolicy="NEVER">
+            <ScrollPane hbarPolicy="NEVER" layoutX="26.0" layoutY="98.0" prefHeight="451.0" prefWidth="861.0" styleClass="scrollPaneSongs" vbarPolicy="NEVER">
                <content>
-                  <VBox fx:id="vBoxSongs" prefHeight="505.0" prefWidth="843.0" />
+                  <VBox fx:id="vBoxSongs" prefHeight="453.0" prefWidth="843.0" />
                </content>
             </ScrollPane>
             <ImageView fitHeight="55.0" fitWidth="49.0" layoutX="24.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
@@ -50,6 +51,8 @@
                   <Image url="@../images/library.png" />
                </image>
             </ImageView>
+            <Button fx:id="btnDeshacer" layoutX="232.0" layoutY="528.0" mnemonicParsing="false" onMouseClicked="#deshacer" styleClass="Button" text="Deshacer" />
+            <Button fx:id="btnRehacer" layoutX="571.0" layoutY="528.0" mnemonicParsing="false" onMouseClicked="#rehacer" styleClass="Button" text="Rehacer" />
          </children>
       </AnchorPane>
    </content>

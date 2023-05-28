@@ -73,8 +73,14 @@ public class ItemSongController extends Controller {
     @FXML
     void likeSong(MouseEvent event) {
 
-        if(!getData().getSongs().contains(own))getData().setFavSongs(own);
-        else getData().getSongs().remove(own);
-    }
+        if(!getData().getFavSongs().contains(own)){
 
+            getData().setFavSongs(own);
+            getData().setPilDeshacer(own);
+        } else{
+
+            getData().resetFavSongs(own);
+            getData().setPilDeshacer(own);
+        }
+    }
 }

@@ -9,16 +9,23 @@ import org.ed.model.User;
 import org.ed.utilities.MethodsUtilities;
 import org.ed.utilities.PathUtilities;
 
+import java.util.Stack;
+
 public class DataFactory {
 
     private static DataFactory data;
     private DoubleLinkedList<Song> songs;
     private Song selectedSong;
+    private Stack<Song> pilRehacer;
+    private Stack<Song> pilDeshacer;
+
 
     private DataFactory(){
 
         songs = new DoubleLinkedList<>();
         selectedSong = new Song();
+        pilDeshacer = new Stack<>();
+        pilRehacer = new Stack<>();
     }
 
     public static DataFactory getInstance(){
@@ -62,5 +69,27 @@ public class DataFactory {
 
         userLogged().getSongs().add(aux);
         Domain.getInstance().makeRelation(userLogged().getId(), aux.getId());
+    }
+
+    public void resetFavSongs(Song aux){
+
+        userLogged().getSongs().remove(aux);
+        Domain.getInstance().deleteRelation(userLogged().getId(), aux.getId());
+    }
+
+    public Stack<Song> getPilRehacer() {
+        return pilRehacer;
+    }
+
+    public void setPilRehacer(Song aux) {
+        pilRehacer.push(aux);
+    }
+
+    public Stack<Song> getPilDeshacer() {
+        return pilDeshacer;
+    }
+
+    public void setPilDeshacer(Song aux) {
+        pilDeshacer.push(aux);
     }
 }

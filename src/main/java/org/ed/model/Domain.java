@@ -77,6 +77,11 @@ public class Domain {
         DBConnection.getInstance().makeRelation(userId, songId);
     }
 
+    public void deleteRelation(Long userId, Long songId){
+
+        DBConnection.getInstance().deleteRelation(userId, songId);
+    }
+
     public Song getSong(String id) {
 
         try {

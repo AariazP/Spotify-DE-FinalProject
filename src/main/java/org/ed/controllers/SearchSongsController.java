@@ -108,8 +108,15 @@ public class SearchSongsController extends Controller{
 
         if(ownSong != null){
 
-            if(!getData().getSongs().contains(ownSong))getData().setFavSongs(ownSong);
-            else getData().getSongs().remove(ownSong);
+            if(!getData().getFavSongs().contains(ownSong)){
+
+                getData().setFavSongs(ownSong);
+                getData().setPilDeshacer(ownSong);
+            } else{
+
+                getData().resetFavSongs(ownSong);
+                getData().setPilDeshacer(ownSong);
+            }
         }
     }
 

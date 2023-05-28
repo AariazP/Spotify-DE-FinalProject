@@ -1,6 +1,8 @@
 package org.ed.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,6 +20,13 @@ import java.util.Iterator;
 public class LibraryController extends Controller{
 
     private LeftBarController leftBarController;
+
+    @FXML
+    private Button btnDeshacer;
+
+    @FXML
+    private Button btnRehacer;
+
     @FXML
     private VBox vBoxSongs;
 
@@ -49,5 +58,27 @@ public class LibraryController extends Controller{
             getData().setSelectedSong(it.next());
             vBoxSongs.getChildren().add(getMain().loadFXML(PathUtilities.ITEMSONG).load());
         }
+    }
+
+    @FXML
+    void deshacer(MouseEvent event) throws IOException {
+
+        Song aux = getData().getPilDeshacer().pop();
+        getData().setPilRehacer(aux);
+
+        if(getData().getFavSongs().contains(aux))getData().resetFavSongs(aux);
+        else getData().setFavSongs(aux);
+        loadFavSongs(getData().getFavSongs());
+    }
+
+    @FXML
+    void rehacer(MouseEvent event) throws IOException {
+
+        Song aux = getData().getPilRehacer().pop();
+        getData().setPilDeshacer(aux);
+
+        if(getData().getFavSongs().contains(aux))getData().resetFavSongs(aux);
+        else getData().setFavSongs(aux);
+        loadFavSongs(getData().getFavSongs());
     }
 }

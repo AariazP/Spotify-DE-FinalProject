@@ -18,6 +18,8 @@ public class DBUtilities {
 
     public static final String addRelation = "INSERT INTO users_songs (user_id, song_id) VALUES (?, ?)";
 
+    public static final String deleteRelation = "DELETE FROM users_songs WHERE users_songs.user_id = ? AND users_songs.song_id = ? ";
+
     public static final String getUsers = "SELECT * FROM users";
 
     public static final String getFavs = "SELECT * FROM users_songs";
